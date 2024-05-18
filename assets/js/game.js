@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
   setBackgroundColor();
 });
 
-
 // Function to display welcome container
 function displayWelcome() {
   $("#welcome-container").removeClass("hide");
@@ -288,6 +287,7 @@ document.getElementById("submit-btn").addEventListener("click", function () {
   }
 });
 
+//Function to display correct message for the score achieved 
 function getScoreMessage(score) {
   switch (score) {
     case 5:
@@ -303,6 +303,7 @@ function getScoreMessage(score) {
   }
 }
 
+//Function to update letter divs after submitting a guess
 function updateIncorrectLetters(userGuess) {
   let letterDivs = document.querySelectorAll("#word-container .letter-div");
   let hasCorrectGuess = false;
@@ -337,5 +338,53 @@ let totalScore = 0;
 function updateTotalScore(score) {
   totalScore += score;
   document.getElementById("total-score").textContent = "Total Score: " + totalScore;
+}
+
+// Function to shuffle an array (Fisher-Yates algorithm)
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+function fetchSynonyms(word, callback) {
+  let xhr = new XMLHttpRequest();
+  let baseURL = "https://api.wordnik.com/v4/word.json/";
+  let hintOne = `${word}/relatedWords?useCanonical=false&relationshipTypes=synonym&limitPerRelationshipType=100&api_key=`;
+  let apiKey = getApiKey();
+
+  xhr.open("GET", baseURL + hintOne + apiKey);
+  xhr.send();
+
+  xhr.onreadystatechange = function () {
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+
+        let data = JSON.parse(this.responseText);
+
+        console.log("Synonyms data:", data);
+
+        let synonyms = data[0].words || [];
+
+        synonyms = shuffleArray(synonyms);
+        synonyms = synonyms.slice(0, 10);
+
+        callback(null, synonyms);
+      } else {
+        callback("Error fetching synonyms: " + this.statusText, null);
+      }
+    }
+  };
+}
+
+const hintOneContainer = document.getElementById("hint-one");
+
+function displaySynonyms(synonyms) {
+  let synonymsString = synonyms.join(", ");
+  synonymsString = synonymsString.charAt(0).toUpperCase() + synonymsString.slice(1);
+  hintOneContainer.innerHTML = "<h4 class='hint-heading'>My synonyms are:</h4>" + synonymsString;
+  hintOneContainer.style.display = "block";
 }
 
