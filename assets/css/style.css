@@ -54,3 +54,114 @@ nav {
   margin-top: 25px;
 }
 
+#game-heading {
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+
+#game-container {
+  border: 5px double #f3f3f3;
+  border-radius: 5px;
+  margin: 25px auto 5% auto;
+  width: 80%;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+#player-name {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+#word-container {
+  margin-bottom: 40px;
+}
+
+.letter-div {
+  height: 50px;
+  width: 50px;
+  border: 2px solid #f3f3f3;
+  border-radius: 5px;
+  background-color: #000;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #f3f3f3;
+  display: inline-block;
+  line-height: 40px;
+}
+
+.game-btn {
+  border: 2px solid #f3f3f3;
+  border-radius: 5px;
+  background-color: #000;
+  color: #f3f3f3;
+  font-size: 1rem;
+  text-align: center;
+}
+
+#submit-btn {
+  display: block;
+  width: 150px;
+  height: 35px;
+  margin: 25px auto 10px auto;
+}
+
+#hint-btn {
+  display: block;
+  width: 100px;
+  height: 30px;
+  margin: 15px auto 0px auto;
+}
+
+#hint-container {
+  display: block;
+}
+
+.hint-heading {
+  margin-bottom: 10px;
+}
+
+#hint-one {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+#hint-two {
+  margin-bottom: 25px;
+}
+
+#hint-three {
+  margin-bottom: 25px;
+}
+
+#pass-btn {
+  display: block;
+  margin: 15px auto 25px auto;
+  width: 75px;
+  height: 25px;
+}
+
+#total-score {
+  margin-bottom: 35px;
+}
+
+#finish-btn {
+  width: 175px;
+  height: 50px;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .letter-div {
+    height: 35px;
+    width: 35px;
+    border: 2px solid #f3f3f3;
+    border-radius: 3.5px;
+    background-color: #000;
+    margin-left: 4px;
+    margin-right: 4px;
+    color: #f3f3f3;
+    display: inline-block;
+    line-height: 28px;
+  }
+}
