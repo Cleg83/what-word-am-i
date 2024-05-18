@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setBackgroundColor();
 });
 
+
 // Function to display welcome container
 function displayWelcome() {
   $("#welcome-container").removeClass("hide");
@@ -149,12 +150,12 @@ document.getElementById("word-container").addEventListener("input", function (ev
     let userGuess = "";
     let letterDivs = document.querySelectorAll("#word-container .letter-div");
     letterDivs.forEach(function (div, index) {
-      userGuess += div.textContent.trim().toLowerCase(); 
+      userGuess += div.textContent.trim().toLowerCase();
     });
     correctLetterGuessed = userGuess.split("").some((char, index) => char === randomWord[index]);
     if (correctLetterGuessed) {
       letterDivs.forEach(function (div) {
-        guessedLetters[div.dataset.index] = true; 
+        guessedLetters[div.dataset.index] = true;
       });
     }
   }
@@ -168,7 +169,7 @@ document.getElementById("word-container").addEventListener("keydown", function (
   // Due to the placing the cursor at the end of the character, the below makes the delete key function as a backspace
   if (key === "Delete") {
     event.preventDefault();
-    target.textContent = ""; 
+    target.textContent = "";
 
     let prevLetterDiv = getPrevNavigableLetterDiv(target);
     if (prevLetterDiv) {
@@ -178,7 +179,7 @@ document.getElementById("word-container").addEventListener("keydown", function (
   } else if (key === "ArrowRight") {
     let nextLetterDiv = getNextNavigableLetterDiv(target);
     if (nextLetterDiv) {
-      setTimeout(function() {
+      setTimeout(function () {
         nextLetterDiv.focus();
         placeCursorAtEnd(nextLetterDiv);
       }, 0);
@@ -186,7 +187,7 @@ document.getElementById("word-container").addEventListener("keydown", function (
   } else if (key === "ArrowLeft") {
     let prevLetterDiv = getPrevNavigableLetterDiv(target);
     if (prevLetterDiv) {
-      setTimeout(function() {
+      setTimeout(function () {
         prevLetterDiv.focus();
         placeCursorAtEnd(prevLetterDiv);
       }, 0);
@@ -196,7 +197,7 @@ document.getElementById("word-container").addEventListener("keydown", function (
 
     let prevLetterDiv = getPrevNavigableLetterDiv(target);
     if (prevLetterDiv) {
-      setTimeout(function() {
+      setTimeout(function () {
         prevLetterDiv.focus();
         placeCursorAtEnd(prevLetterDiv);
       }, 0);
@@ -254,4 +255,87 @@ function placeCursorAtEnd(el) {
   sel.addRange(range);
 }
 
+// Submit button event listener that handles updating correct letter, user score, updating score and showing score message
+document.getElementById("submit-btn").addEventListener("click", function () {
+  let userGuess = Array.from(document.querySelectorAll("#word-container .letter-div"))
+    .map(div => div.textContent.trim().toLowerCase())
+    .join("");
+
+  if (userGuess === randomWord) {
+    var score = 0;
+    switch (hintButton.textContent) {
+      case "Hint 1":
+        score = 5;
+        break;
+      case "Hint 2":
+        score = 3;
+        break;
+      case "Hint 3":
+        score = 2;
+        break;
+      default:
+        score = 1;
+        break;
+    }
+    alert(`WWAMI\n\nYou scored ${score} point${score > 1 ? "s" : ""}!\n\n${getScoreMessage(score)}`);
+    updateTotalScore(score);
+    scoreTally[score]++;
+    console.log(scoreTally);
+    newRound();
+  } else {
+    alert("Incorrect. Try again!");
+    updateIncorrectLetters(userGuess);
+  }
+});
+
+function getScoreMessage(score) {
+  switch (score) {
+    case 5:
+      return "Perfect!";
+    case 3:
+      return "Great work!";
+    case 2:
+      return "Pretty, pretty, pretty good!";
+    case 1:
+      return "1 point is better than 0 points, nicely done!";
+    default:
+      return "";
+  }
+}
+
+function updateIncorrectLetters(userGuess) {
+  let letterDivs = document.querySelectorAll("#word-container .letter-div");
+  let hasCorrectGuess = false;
+  letterDivs.forEach(function (div, index) {
+    if (userGuess[index] !== randomWord[index]) {
+      div.textContent = "";
+    } else {
+      hasCorrectGuess = true;
+      div.contentEditable = false;
+    }
+  });
+  if (hasCorrectGuess) {
+    focusFirstBlankLetterDiv();
+  } else {
+    letterDivs[0].focus();
+  }
+}
+
+//Variable to tally how many of each score the user obtains
+let scoreTally = {
+  5: 0,
+  3: 0,
+  2: 0,
+  1: 0,
+  0: 0
+};
+
+// Variable to store the total score
+let totalScore = 0;
+
+// Function to update and then display the total score
+function updateTotalScore(score) {
+  totalScore += score;
+  document.getElementById("total-score").textContent = "Total Score: " + totalScore;
+}
 
