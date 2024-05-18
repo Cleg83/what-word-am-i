@@ -388,3 +388,38 @@ function displaySynonyms(synonyms) {
   hintOneContainer.style.display = "block";
 }
 
+function fetchDefinition(word, callback) {
+  let xhr = new XMLHttpRequest();
+  let baseURL = "https://api.wordnik.com/v4/word.json/";
+  let hintThree = `${word}/definitions?limit=1&includeRelated=false&sourceDictionaries=webster&useCanonical=false&includeTags=false&api_key=`;
+  let apiKey = getApiKey();
+
+  xhr.open("GET", baseURL + hintThree + apiKey);
+  xhr.send();
+
+  xhr.onreadystatechange = function () {
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+
+        let data = JSON.parse(this.responseText);
+        console.log("Definition data:", data);
+
+        let definition = data[0].text || "";
+
+        callback(null, definition);
+      } else {
+        callback("Error fetching definition: " + this.statusText, null);
+      }
+    }
+  };
+}
+
+const hintTwoContainer = document.getElementById("hint-two");
+
+function displayDefinition(definition) {
+  hintTwoContainer.innerHTML = "<h4 class='hint-heading'>My definition is:</h4>" + definition;
+  hintTwoContainer.style.display = "block";
+}
+
+
+
