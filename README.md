@@ -1,5 +1,3 @@
-#WWAMI
-
 ## CONTENTS
 
 * [WWAMI](#WWAMI)
@@ -137,7 +135,14 @@ When the focus is on either a tile or the submit button, the enter key will allo
 
 The game page also allows the player to generate up to three hints (more on that functionality can be found in the next few sections). With each hint shown, the score the player can achieve is reduced. 
 
-The player can choose to pass the round and score 0 points and tey can also choose to finish the game at any time.
+The player can choose to pass the round and score 0 points and they can also choose to finish the game at any time.
+
+### Generating a random word
+
+The word the player has to guess is a random word generated from an array stored in a separate .js file. 
+
+The random word is stored so that it won't be repeated during the game.
+
 
 
 
