@@ -378,8 +378,13 @@ function fetchSynonyms(word, callback) {
         callback(null, synonyms);
       } else {
         callback("Error fetching synonyms: " + this.statusText, null);
-        alert("We couldn't find the synonyms for this word, apologies.\n\nWe will skip this round");
-        newRound();
+        const skipRoundNoSyn = confirm("We couldn't find the synonyms for this word, apologies.\n\nWe can skip this round or you guess again.\n\nPress OK to skip or cancel to guess again");
+        if (skipRoundNoSyn) {
+          alert(`The word was ${randomWord}.\n\nApologies if this would have been your guess.`);
+          newRound();
+        } else {
+          hintButton.textContent = "Hint 1";
+        }
       }
     }
   };
