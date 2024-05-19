@@ -1,3 +1,5 @@
+// Welcome page------------------------------------------------------------------------------
+
 // Function to set background color of welcome page & first game page.
 function setBackgroundColor() {
   document.body.style.backgroundColor = "#e68eb6";
@@ -39,6 +41,8 @@ $("#go-btn").on("click", function () {
   gameDisplay();
   launchGame();
 });
+
+// Game logic--------------------------------------------------------------------
 
 //Function to display the game page
 function gameDisplay() {
@@ -591,6 +595,23 @@ function clearPlayerInfo() {
   playerInfo.value = "";
   console.log("Resetting player info");
 }
+
+// Header functionality----------------------------------------------------------------- 
+
+//Event listener for header home link that confirms if the user wants to return home and lose game progress
+document.getElementById("WWAMI").addEventListener("click", function () {
+  const returnHome = confirm("Are you sure you wish to return home?\n\nGame progress will be lost!");
+  if (returnHome) {
+    clearHintContainers();
+    clearPlayerInfo();
+    setBackgroundColor();
+    displayWelcome();
+    document.getElementById("total-score").textContent = "Total Score: ";
+    document.getElementById("go-btn").classList.add("hide");
+  } else {
+    console.log("Game continued");
+  }
+});
 
 
 
