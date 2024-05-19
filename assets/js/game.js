@@ -378,6 +378,8 @@ function fetchSynonyms(word, callback) {
         callback(null, synonyms);
       } else {
         callback("Error fetching synonyms: " + this.statusText, null);
+        alert("We couldn't find the synonyms for this word, apologies.\n\nWe will skip this round");
+        newRound();
       }
     }
   };
@@ -413,6 +415,13 @@ function fetchDefinition(word, callback) {
         callback(null, definition);
       } else {
         callback("Error fetching definition: " + this.statusText, null);
+        const skipRoundNoDef = confirm("We couldn't find the definition for this word, apologies.\n\nWe can skip this round or you guess again.\n\nPress OK to skip or cancel to guess again");
+        if (skipRoundNoDef) {
+          alert(`The word was ${randomWord}.\n\nApologies if this would have been your guess.`);
+          newRound();
+        } else {
+          hintButton.textContent = "Hint 2";
+        }
       }
     }
   };
@@ -449,6 +458,14 @@ function fetchRhymes(word, callback) {
         callback(null, rhymes);
       } else {
         callback("Error fetching rhymes: " + this.statusText, null);
+        const skipRoundNoRhymes = confirm("We couldn't find the rhyming words for this word, apologies.\n\nWe can skip this round or you guess again.\n\nPress OK to skip or cancel to guess again");
+        if (skipRoundNoRhymes) {
+          alert(`The word was ${randomWord}.\n\nApologies if this would have been your guess.`);
+          newRound();
+        } else {
+          hintButton.style.display = "block";
+          hintButton.textContent = "Hint 3";
+        }
       }
     }
   };
