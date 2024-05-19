@@ -521,5 +521,23 @@ document.getElementById("hint-btn").addEventListener("click", function () {
   updateHintButton();
 }); 
 
+//Function to move to the next round / word
+function newRound() {
+
+  randomWord = "";
+  guessedLetters = [];
+  correctLetterGuessed = false;
+
+  // Clear word container
+  const wordContainer = document.getElementById("word-container");
+  if (wordContainer) {
+    wordContainer.innerHTML = "";
+  }
+
+  clearHintContainers();
+
+  launchGame();
+}
+
 
 
