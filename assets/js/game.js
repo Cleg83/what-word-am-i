@@ -536,7 +536,25 @@ function newRound() {
 
   clearHintContainers();
 
+  let newGameColor = getRandomColor();
+  document.body.style.backgroundColor = newGameColor;
+
   launchGame();
+}
+
+//Background colors for each new round
+const backgroundColors = ["#e68eb6", "#e14040", "#edc24c", "#e6607f", "#dbc037", "#b2a1f0", "#e16be3", "#47ad62", "#8f5656"];
+
+let defaultColor = "#e68eb6";
+
+// Function to generate a random color and to ensure the same color isn't repeated immediately
+function getRandomColor() {
+  let randomColor;
+  do {
+    randomColor = backgroundColors[Math.floor(Math.random() * backgroundColors.length)];
+  } while (randomColor === defaultColor);
+  defaultColor = randomColor;
+  return randomColor;
 }
 
 
