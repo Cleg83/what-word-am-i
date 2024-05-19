@@ -421,5 +421,43 @@ function displayDefinition(definition) {
   hintTwoContainer.style.display = "block";
 }
 
+function fetchRhymes(word, callback) {
+  console.log("Fetching rhymes for word:", word);
+  let xhr = new XMLHttpRequest();
+  let baseURL = "https://api.wordnik.com/v4/word.json/";
+  let hintOne = `${word}//relatedWords?useCanonical=false&relationshipTypes=rhyme&limitPerRelationshipType=100&api_key=`;
+  let apiKey = getApiKey();
+
+  xhr.open("GET", baseURL + hintOne + apiKey);
+  xhr.send();
+
+  xhr.onreadystatechange = function () {
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+        let data = JSON.parse(this.responseText);
+        console.log("rhymes data:", data);
+
+        let rhymes = data[0].words || [];
+        rhymes = shuffleArray(rhymes);
+
+        rhymes = rhymes.slice(0, 10);
+
+        callback(null, rhymes);
+      } else {
+        callback("Error fetching rhymes: " + this.statusText, null);
+      }
+    }
+  };
+}
+
+const hintThreeContainer = document.getElementById("hint-three");
+
+function displayRhymes(rhymes) {
+  let rhymeString = rhymes.join(", ");
+  rhymeString = rhymeString.charAt(0).toUpperCase() + rhymeString.slice(1);
+  hintThreeContainer.innerHTML = "<h4 class='hint-heading'>My rhyming words are:</h4>" + rhymeString;
+  hintThreeContainer.style.display = "block";
+}
+
 
 
