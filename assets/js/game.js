@@ -576,8 +576,9 @@ let defaultColor = "#e68eb6";
 
 // Function to generate a random color and to ensure the same color isn't repeated immediately
 function getRandomColor() {
+  let randomColor;
   do {
-    let randomColor = backgroundColors[Math.floor(Math.random() * backgroundColors.length)];
+    randomColor = backgroundColors[Math.floor(Math.random() * backgroundColors.length)];
   } while (randomColor === defaultColor);
   defaultColor = randomColor;
   return randomColor;
