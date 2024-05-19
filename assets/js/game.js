@@ -570,5 +570,28 @@ document.getElementById("pass-btn").addEventListener("click", function () {
   }
 });
 
+// Event listener for finish button that ultimately resets the game state
+document.getElementById("finish-btn").addEventListener("click", function () {
+  const finishGame = confirm("Are you sure you wish to WWAMI no more?");
+  if (finishGame) {
+    alert("Thank you for playing WWAMI");
+    clearHintContainers();
+    clearPlayerInfo();
+    setBackgroundColor();
+    displayWelcome();
+    document.getElementById("total-score").textContent = "Total Score: ";
+    document.getElementById("go-btn").classList.add("hide");
+  } else {
+  }
+});
+
+//Clears input field on welcome page to allow new name to be input
+function clearPlayerInfo() {
+  let playerInfo = document.getElementById("player-info");
+  playerInfo.value = "";
+  console.log("Resetting player info");
+}
+
+
 
 
