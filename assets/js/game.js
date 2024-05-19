@@ -459,6 +459,15 @@ function displayRhymes(rhymes) {
   hintThreeContainer.style.display = "block";
 }
 
+function clearHintContainers() {
+  hintOneContainer.innerHTML = "";
+  hintOneContainer.style.display = "none";
+  hintTwoContainer.innerHTML = "";
+  hintTwoContainer.style.display = "none";
+  hintThreeContainer.innerHTML = "";
+  hintThreeContainer.style.display = "none";
+}
+
 function updateHintButton() {
   if (hintButton.textContent == "Hint 1") {
     hintButton.textContent = "Hint 2";
