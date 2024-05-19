@@ -459,5 +459,58 @@ function displayRhymes(rhymes) {
   hintThreeContainer.style.display = "block";
 }
 
+function updateHintButton() {
+  if (hintButton.textContent == "Hint 1") {
+    hintButton.textContent = "Hint 2";
+  } else if (hintButton.textContent == "Hint 2") {
+    hintButton.textContent = "Hint 3";
+  } else {
+    hintButton.textContent = "";
+    hintButton.style.display = "none";
+  }
+}
+
+document.getElementById("hint-btn").addEventListener("click", function () {
+  console.log("Hint button clicked");
+  if (hintButton.textContent == "Hint 1") {
+    if (randomWord) {
+      fetchSynonyms(randomWord, function (error, data) {
+        if (error) {
+          console.error(error);
+        } else {
+          displaySynonyms(data);
+        }
+      });
+    } else {
+      console.error("Random word is not defined");
+    }
+  } else if (hintButton.textContent == "Hint 2") {
+    if (randomWord) {
+      fetchDefinition(randomWord, function (error, definition) {
+        if (error) {
+          console.error(error);
+        } else {
+          displayDefinition(definition);
+        }
+      });
+    } else {
+      console.error("Random word is not defined");
+    }
+  } else if (hintButton.textContent == "Hint 3") {
+    if (randomWord) {
+      fetchRhymes(randomWord, function (error, data) {
+        if (error) {
+          console.error(error);
+        } else {
+          displayRhymes(data);
+        }
+      });
+    } else {
+      console.error("Random word is not defined");
+    }
+  }
+  updateHintButton();
+}); 
+
 
 
