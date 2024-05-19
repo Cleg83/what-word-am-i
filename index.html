@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link type="text/css" rel="stylesheet" href="assets/css/style.css">
   <title>WWAMI</title>
+  <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init("NHWJ6RtgECRaW-CFC");
+    })();
+  </script>
 </head>
+
 <body>
   <nav>
     <a id="WWAMI">WWAMI</a>
@@ -22,7 +30,7 @@
     <p>Pass: 0 points</p>
     <h3 id="name-heading">To play, please enter your name or initials below:</h3>
     <p>(don't worry, we only use these details to allow us to refer to you as more than just "player")</p>
-    <input type="text" id="player-info"></input>  
+    <input type="text" id="player-info"></input>
     <div id="button-container">
       <button id="go-btn" class="hide game-btn">GO!</button>
     </div>
@@ -42,10 +50,36 @@
     <p id="total-score"><strong>Total Score:</strong></p>
     <button id="finish-btn" class="game-btn">Finish Game</button>
   </section>
+
+  <div id="confirm-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="confirm-close">&times;</span>
+      <h2>Finish Game</h2>
+      <p>Are you sure you wish to WWAMI no more?</p>
+      <button id="confirm-finish">Yes</button>
+      <button id="cancel-finish">No</button>
+    </div>
+  </div>
+
+  <div id="thankyou-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="thankyou-close">&times;</span>
+      <h2>Thank you for playing WWAMI</h2>
+      <div id="email-form-container">
+        <h2>Email Results</h2>
+        <form id="email-form">
+          <input type="email" id="email" placeholder="Enter your email address" required>
+          <button type="submit">Send Results</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script type="text/javascript" src="assets/js/jquery-3.7.1.js"></script>
   <script type="text/javascript" src="assets/js/config.js"></script>
   <script type="module" src="assets/js/word-list.js"></script>
   <script type="module" src="assets/js/game.js"></script>
   <script src=""></script>
 </body>
+
 </html>
