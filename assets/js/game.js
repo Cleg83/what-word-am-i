@@ -557,5 +557,18 @@ function getRandomColor() {
   return randomColor;
 }
 
+// Event listener for Pass button that checks if user wants to pass, updates score if they do and shows what the game word was
+document.getElementById("pass-btn").addEventListener("click", function () {
+  const passRound = confirm("Are you sure you want to pass?\n\nYou'll get 0 points");
+  if (passRound) {
+    alert(`Bad luck!\n\nThe word was ${randomWord}.`);
+    updateTotalScore(0);
+    scoreTally[0]++;
+    console.log(scoreTally);
+    newRound();
+  } else {
+  }
+});
+
 
 
