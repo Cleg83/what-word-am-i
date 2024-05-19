@@ -659,6 +659,42 @@ function showThankYouModal() {
   };
 }
 
+// Event listener for send email button and template parameters for the email
+document.getElementById("email-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  let userEmail = document.getElementById("email").value;
+
+  const templateParams = {
+      to_email: userEmail,
+      player_name: playerName,
+      total_score: totalScore,
+      score_5: scoreTally[5],
+      score_3: scoreTally[3],
+      score_2: scoreTally[2],
+      score_1: scoreTally[1],
+      score_0: scoreTally[0]
+  };
+
+  sendEmail(templateParams);
+
+  // Close the modal and reset game state after submitting
+  document.getElementById("thankyou-modal").style.display = "none";
+  resetGame();
+});
+
+// Function to send email
+function sendEmail(templateParams) {
+  emailjs.send("gmail", "WWAMI-scores", templateParams)
+  .then(function(response) {
+      console.log("Email sent successfully:", response);
+      alert("Results sent successfully!");
+  }, function(error) {
+      console.error("Email sending failed:", error);
+      alert("Failed to send results. Please try again later.");
+  });
+}
+
 //Clears input field on welcome page to allow new name to be input
 function clearPlayerInfo() {
   let playerInfo = document.getElementById("player-info");
