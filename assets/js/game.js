@@ -33,10 +33,11 @@ document.getElementById("player-info").addEventListener("input", function (event
   }
 });
 
+let playerName;
 // GO! button click event to call the gameDisplay function
 $("#go-btn").on("click", function () {
   console.log("Button clicked!");
-  let playerName = $("#player-info").val().trim();
+  playerName = $("#player-info").val().trim();
   $("#player-name").text("Playing as " + playerName);
   gameDisplay();
   launchGame();
@@ -575,9 +576,8 @@ let defaultColor = "#e68eb6";
 
 // Function to generate a random color and to ensure the same color isn't repeated immediately
 function getRandomColor() {
-  let randomColor;
   do {
-    randomColor = backgroundColors[Math.floor(Math.random() * backgroundColors.length)];
+    let randomColor = backgroundColors[Math.floor(Math.random() * backgroundColors.length)];
   } while (randomColor === defaultColor);
   defaultColor = randomColor;
   return randomColor;
@@ -596,20 +596,67 @@ document.getElementById("pass-btn").addEventListener("click", function () {
   }
 });
 
-// Event listener for finish button that ultimately resets the game state
-document.getElementById("finish-btn").addEventListener("click", function () {
-  const finishGame = confirm("Are you sure you wish to WWAMI no more?");
-  if (finishGame) {
-    alert("Thank you for playing WWAMI");
-    clearHintContainers();
-    clearPlayerInfo();
-    setBackgroundColor();
-    displayWelcome();
-    document.getElementById("total-score").textContent = "Total Score: ";
-    document.getElementById("go-btn").classList.add("hide");
-  } else {
-  }
+// Replaced confirms and alerts with modals for much better UI
+
+// Event listener for finish button
+document.getElementById("finish-btn").addEventListener("click", function() {
+  showConfirmModal(); 
 });
+
+// First modal to check if the player wants to finish the game
+function showConfirmModal() {
+  let modal = document.getElementById("confirm-modal");
+  let closeBtn = document.getElementById("confirm-close");
+
+  modal.style.display = "block"; 
+
+  // Ensure close button functions correctly
+  closeBtn.onclick = function() {
+      modal.style.display = "none";
+  };
+
+  // Close the modal when the user clicks anywhere outside of it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  };
+}
+
+document.getElementById("confirm-finish").addEventListener("click", function() {
+  let confirmModal = document.getElementById("confirm-modal");
+  confirmModal.style.display = "none"; 
+
+  // Show the thank you modal if the player wishes to finish their game
+  showThankYouModal();
+});
+
+// CLose modal if they wish to continue
+document.getElementById("cancel-finish").addEventListener("click", function() {
+  let modal = document.getElementById("confirm-modal");
+  modal.style.display = "none"; 
+});
+
+// Second modal after finishing game thanking player and asking if they wish for the results to be emailed to them
+function showThankYouModal() {
+  let modal = document.getElementById("thankyou-modal");
+  let closeBtn = document.getElementById("thankyou-close");
+
+  modal.style.display = "block";
+
+  // Close the modal when the user clicks on the close button
+  closeBtn.onclick = function() {
+      modal.style.display = "none";
+      resetGame();
+  };
+
+  // Prevent closing the modal when the user clicks anywhere outside of it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          event.stopPropagation();
+      }
+  };
+}
 
 //Clears input field on welcome page to allow new name to be input
 function clearPlayerInfo() {
@@ -618,23 +665,25 @@ function clearPlayerInfo() {
   console.log("Resetting player info");
 }
 
+// Function to reset game state
+function resetGame() {
+  clearHintContainers();
+  clearPlayerInfo();
+  setBackgroundColor();
+  displayWelcome();
+  document.getElementById("total-score").textContent = "Total Score: ";
+  document.getElementById("go-btn").classList.add("hide");
+}
+
+
 // Header functionality----------------------------------------------------------------- 
 
 //Event listener for header home link that confirms if the user wants to return home and lose game progress
 document.getElementById("WWAMI").addEventListener("click", function () {
   const returnHome = confirm("Are you sure you wish to return home?\n\nGame progress will be lost!");
   if (returnHome) {
-    clearHintContainers();
-    clearPlayerInfo();
-    setBackgroundColor();
-    displayWelcome();
-    document.getElementById("total-score").textContent = "Total Score: ";
-    document.getElementById("go-btn").classList.add("hide");
+    resetGame();
   } else {
     console.log("Game continued");
   }
 });
-
-
-
-
