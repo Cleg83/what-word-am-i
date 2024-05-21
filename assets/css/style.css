@@ -20,6 +20,10 @@ nav {
   padding-right: 25px;
 }
 
+nav a:nth-of-type(2){
+  padding-right: 20px;
+}
+
 #welcome-container {
   text-align: center;
 }
@@ -164,6 +168,19 @@ nav {
     color: #f3f3f3;
     display: inline-block;
     line-height: 28px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  nav {
+    height: 110px;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  nav a:nth-of-type(2) {
+    padding-right: 0px;
   }
 }
 
