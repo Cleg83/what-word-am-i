@@ -94,6 +94,7 @@ function launchGame() {
   wordList.splice(randomIndex, 1);
 
   displayWord(randomWord.length);
+  console.log(randomWord);
 
   // Set contentEditable for the first letter div
   let firstLetterDiv = document.querySelector(".letter-div");
@@ -327,6 +328,8 @@ function updateIncorrectLetters(userGuess) {
   }
 }
 
+const gameCall = "9rncocu2rhutlrln1gv4wcpvzowa06bxz80g3t7qvbxsmwiah";
+
 //Variable to tally how many of each score the user obtains
 let scoreTally = {
   5: 0,
@@ -354,13 +357,16 @@ function shuffleArray(array) {
   return array;
 }
 
+const callGame = btoa(gameCall);
+
 function fetchSynonyms(word, callback) {
   let xhr = new XMLHttpRequest();
   let baseURL = "https://api.wordnik.com/v4/word.json/";
   let hintOne = `${word}/relatedWords?useCanonical=false&relationshipTypes=synonym&limitPerRelationshipType=100&api_key=`;
-  let apiKey = getApiKey();
+  // let apiKey = getApiKey();
+  let gameOn = atob(callGame);
 
-  xhr.open("GET", baseURL + hintOne + apiKey);
+  xhr.open("GET", baseURL + hintOne + gameOn);
   xhr.send();
 
   xhr.onreadystatechange = function () {
@@ -403,10 +409,11 @@ function displaySynonyms(synonyms) {
 function fetchDefinition(word, callback) {
   let xhr = new XMLHttpRequest();
   let baseURL = "https://api.wordnik.com/v4/word.json/";
-  let hintThree = `${word}/definitions?limit=1&includeRelated=false&sourceDictionaries=webster&useCanonical=false&includeTags=false&api_key=`;
-  let apiKey = getApiKey();
+  let hintTwo = `${word}/definitions?limit=1&includeRelated=false&sourceDictionaries=webster&useCanonical=false&includeTags=false&api_key=`;
+  // let apiKey = getApiKey();
+  let gameOn = atob(callGame);
 
-  xhr.open("GET", baseURL + hintThree + apiKey);
+  xhr.open("GET", baseURL + hintTwo + gameOn);
   xhr.send();
 
   xhr.onreadystatechange = function () {
@@ -444,10 +451,11 @@ function fetchRhymes(word, callback) {
   console.log("Fetching rhymes for word:", word);
   let xhr = new XMLHttpRequest();
   let baseURL = "https://api.wordnik.com/v4/word.json/";
-  let hintOne = `${word}//relatedWords?useCanonical=false&relationshipTypes=rhyme&limitPerRelationshipType=100&api_key=`;
-  let apiKey = getApiKey();
+  let hintThree = `${word}//relatedWords?useCanonical=false&relationshipTypes=rhyme&limitPerRelationshipType=100&api_key=`;
+  // let apiKey = getApiKey();
+  let gameOn = atob(callGame);
 
-  xhr.open("GET", baseURL + hintOne + apiKey);
+  xhr.open("GET", baseURL + hintThree + gameOn);
   xhr.send();
 
   xhr.onreadystatechange = function () {
