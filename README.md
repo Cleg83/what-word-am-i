@@ -24,7 +24,7 @@
   * [Generating a random word](#generating-a-random-word)
   * [Generating Hints](#generating-hints)
     * [Fetching Synonyms](#fetching-synonyms)
-    * [Fetching Definition](#fetching-definition)
+    * [Fetching Definitions](#fetching-definition)
     * [Fetching Rhymes](#fetching-rhymes)
     * [Hint Error Handling](#hint-error-handling)
   * [The Hint Button](#the-hint-button)
@@ -75,14 +75,15 @@ I would be lying if I said the main inspiration for WWAMI wasn't an incredibly p
 
 The motivation was to create a word guessing game that provides a new, enjoyable but challenging interactive game that offers features other word guessing games do not (mainly the ability to show hints for the word if needed).
 
+My main issue with game I play daily is the tyranny of choice. By this, I mean a series of blank tiles with no context or guidance can inhibit some players from getting started (there's simply too much choice with where to start). Though WWAMI does present itself in a similar fashion to that game, the presence of the hint button offers some reassurance if they are struggling to get started or indeed, just struggling to guess the word.  
+
 ### Background Information
 
 WWAMI took around 6 weeks to build and the bulk of the time was spent on navigation and letter input. Due to the game layout being simple and text input based, I wanted the player to not have to think about navigating between tiles.
 
 What I thought would be a simple project to build ended up presenting me with problems I'd not yet considered and the solutions to these problems were (largely) new territories for me.
 
-Thankfully (at its best), the internet is a wonderfully helpful place and
-
+Thankfully (at its best), the internet is a wonderfully helpful place and hours of scouring Stack Overflow, W3C, MDN & YouTube (special shout-out to the WebDev Simplified channel) steered me in the right direction. 
 
 N.B. The commit history for this project belies the amount of time I actually spent working on it. I would say it's about 6 weeks of work that was committed regularly to a gitHub repo but due to exposing the API key (which I have since discovered is somewhat impossible without any server-side programming), I panicked and deleted that repo. Then in a rather rushed manner, I committed everything to the new repo but was careful to still (try) and give a fairly accurate snapshot of the order in which the project was built. 
 
@@ -194,7 +195,21 @@ Wordnik API returns the data in the below format when making the call:
 
 From this I had to extract the "words" array so I could manipulate the data with the method outlined above.
 
-### Hint Error handling
+The synonyms are then displayed as a comma separated string with the first letter of the first word capitalised and because it's a word game and details are important, it ends with a full-stop.
+
+### Fetching definitions
+
+This was less complicated than fetching the synonyms and rhyming words because you can limit the number of responses the API returns to only one definition in the URL:
+
+    let hintTwo = `${word}/definitions?limit=1&includeRelated=false
+
+From this one result, I only had to extract the "text" element and then display the definition to the player.
+
+### Fetching rhyming words
+
+
+
+### Hint error handling
 
 Due to relying on API calls to fetch the hints, I wanted to incorporate error handling into the game play: Rather than only logging errors to the console and alerting the player that there is an error, I have added a confirm element to each of the fetch hint functions that alerts the player of the error and asks if they want to skip the round or guess again.
 
