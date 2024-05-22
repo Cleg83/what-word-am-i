@@ -554,7 +554,7 @@ document.getElementById("hint-btn").addEventListener("click", function () {
     }
   }
   updateHintButton();
-}); 
+});
 
 //Function to move to the next round / word
 function newRound() {
@@ -608,8 +608,8 @@ document.getElementById("pass-btn").addEventListener("click", function () {
 // Replaced confirms and alerts with modals for much better UI
 
 // Event listener for finish button
-document.getElementById("finish-btn").addEventListener("click", function() {
-  showConfirmModal(); 
+document.getElementById("finish-btn").addEventListener("click", function () {
+  showConfirmModal();
 });
 
 // First modal to check if the player wants to finish the game
@@ -617,33 +617,33 @@ function showConfirmModal() {
   let modal = document.getElementById("confirm-modal");
   let closeBtn = document.getElementById("confirm-close");
 
-  modal.style.display = "block"; 
+  modal.style.display = "block";
 
   // Ensure close button functions correctly
-  closeBtn.onclick = function() {
-      modal.style.display = "none";
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
   };
 
   // Close the modal when the user clicks anywhere outside of it
-  window.onclick = function(event) {
-      if (event.target == modal) {
-          modal.style.display = "none";
-      }
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
   };
 }
 
-document.getElementById("confirm-finish").addEventListener("click", function() {
+document.getElementById("confirm-finish").addEventListener("click", function () {
   let confirmModal = document.getElementById("confirm-modal");
-  confirmModal.style.display = "none"; 
+  confirmModal.style.display = "none";
 
   // Show the thank you modal if the player wishes to finish their game
   showThankYouModal();
 });
 
 // CLose modal if they wish to continue
-document.getElementById("cancel-finish").addEventListener("click", function() {
+document.getElementById("cancel-finish").addEventListener("click", function () {
   let modal = document.getElementById("confirm-modal");
-  modal.style.display = "none"; 
+  modal.style.display = "none";
 });
 
 // Second modal after finishing game thanking player and asking if they wish for the results to be emailed to them
@@ -654,34 +654,34 @@ function showThankYouModal() {
   modal.style.display = "block";
 
   // Close the modal when the user clicks on the close button
-  closeBtn.onclick = function() {
-      modal.style.display = "none";
-      resetGame();
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+    resetGame();
   };
 
   // Prevent closing the modal when the user clicks anywhere outside of it
-  window.onclick = function(event) {
-      if (event.target == modal) {
-          event.stopPropagation();
-      }
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      event.stopPropagation();
+    }
   };
 }
 
 // Event listener for send email button and template parameters for the email
-document.getElementById("email-form").addEventListener("submit", function(event) {
+document.getElementById("email-form").addEventListener("submit", function (event) {
   event.preventDefault();
 
   let userEmail = document.getElementById("email").value;
 
   const templateParams = {
-      to_email: userEmail,
-      player_name: playerName,
-      total_score: totalScore,
-      score_5: scoreTally[5],
-      score_3: scoreTally[3],
-      score_2: scoreTally[2],
-      score_1: scoreTally[1],
-      score_0: scoreTally[0]
+    to_email: userEmail,
+    player_name: playerName,
+    total_score: totalScore,
+    score_5: scoreTally[5],
+    score_3: scoreTally[3],
+    score_2: scoreTally[2],
+    score_1: scoreTally[1],
+    score_0: scoreTally[0]
   };
 
   sendEmail(templateParams);
@@ -694,13 +694,13 @@ document.getElementById("email-form").addEventListener("submit", function(event)
 // Function to send email
 function sendEmail(templateParams) {
   emailjs.send("gmail", "WWAMI-scores", templateParams)
-  .then(function(response) {
+    .then(function (response) {
       console.log("Email sent successfully:", response);
       alert("Results sent successfully!");
-  }, function(error) {
+    }, function (error) {
       console.error("Email sending failed:", error);
       alert("Failed to send results. Please try again later.");
-  });
+    });
 }
 
 //Clears input field on welcome page to allow new name to be input
@@ -724,59 +724,141 @@ function resetGame() {
 // Header functionality----------------------------------------------------------------- 
 
 //Event listener for header home link that confirms if the user wants to return home and lose game progress
-document.getElementById("WWAMI").addEventListener("click", function () {
-  const returnHome = confirm("Are you sure you wish to return home?\n\nGame progress will be lost!");
-  if (returnHome) {
-    resetGame();
-  } else {
-    console.log("Game continued");
-  }
-});
+// document.getElementById("WWAMI").addEventListener("click", function () {
+//   const returnHome = confirm("Are you sure you wish to return home?\n\nGame progress will be lost!");
+//   if (returnHome) {
+//     resetGame();
+//   } else {
+//     console.log("Game continued");
+//   }
+// });
+
+
 
 // How to play / instructions modal to display game instructions 
 
-document.addEventListener("DOMContentLoaded", function() {
+// document.addEventListener("DOMContentLoaded", function() {
+//   let instructionsModal = document.getElementById("instructions-modal");
+//   let instructionsLink = document.getElementById("how-to-play-link");
+//   let closeBtn = document.getElementById("instructions-close");
+//   let instructionsContent = document.getElementById("instructions-container").innerHTML;
+
+//   instructionsLink.addEventListener("click", function(event) {
+//       event.preventDefault();
+//       document.getElementById("instructions-content").innerHTML = instructionsContent;
+//       instructionsModal.style.display = "block";
+//   });
+
+//   closeBtn.onclick = function() {
+//       instructionsModal.style.display = "none";
+//   };
+
+//   window.onclick = function(event) {
+//       if (event.target == instructionsModal) {
+//           instructionsModal.style.display = "none";
+//       }
+//   };
+// });
+
+// // Modal to display about information
+// document.addEventListener("DOMContentLoaded", function() {
+//   // About Modal
+//   let aboutModal = document.getElementById("about-modal");
+//   let aboutLink = document.getElementById("about-link"); 
+//   let aboutCloseBtn = document.getElementById("about-close");
+
+//   aboutLink.addEventListener("click", function(event) {
+//       event.preventDefault();
+//       aboutModal.style.display = "block";
+//   });
+
+//   aboutCloseBtn.onclick = function() {
+//       aboutModal.style.display = "none";
+//   };
+
+//   window.onclick = function(event) {
+//       if (event.target == aboutModal) {
+//           aboutModal.style.display = "none";
+//       }
+//   };
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  // Home / WWAMI Modal
+  let homeModal = document.getElementById("home-modal");
+  let homeLink = document.getElementById("WWAMI");
+  let homeCloseBtn = document.getElementById("home-close");
+  let confirmHomeBtn = document.getElementById("confirm-home");
+  let cancelHomeBtn = document.getElementById("cancel-home");
+
+  homeLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    homeModal.style.display = "block";
+  });
+
+  // Confirm and return home
+  confirmHomeBtn.addEventListener("click", function () {
+    homeModal.style.display = "none";
+    resetGame();
+  });
+
+  // Cancel and close the modal
+  cancelHomeBtn.addEventListener("click", function () {
+    homeModal.style.display = "none";
+  });
+
+  // Close the modal when the user clicks on the close button
+  homeCloseBtn.onclick = function () {
+    homeModal.style.display = "none";
+  };
+
+  // Prevent closing the modal when clicking outside of it
+  window.onclick = function (event) {
+    if (event.target == homeModal) {
+      homeModal.style.display = "none";
+    }
+  };
+
+  // Instructions Modal
   let instructionsModal = document.getElementById("instructions-modal");
   let instructionsLink = document.getElementById("how-to-play-link");
-  let closeBtn = document.getElementById("instructions-close");
+  let instructionsCloseBtn = document.getElementById("instructions-close");
   let instructionsContent = document.getElementById("instructions-container").innerHTML;
 
-  instructionsLink.addEventListener("click", function(event) {
-      event.preventDefault();
-      document.getElementById("instructions-content").innerHTML = instructionsContent;
-      instructionsModal.style.display = "block";
+  instructionsLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    document.getElementById("instructions-content").innerHTML = instructionsContent;
+    instructionsModal.style.display = "block";
   });
 
-  closeBtn.onclick = function() {
+  instructionsCloseBtn.onclick = function () {
+    instructionsModal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == instructionsModal) {
       instructionsModal.style.display = "none";
+    }
   };
 
-  window.onclick = function(event) {
-      if (event.target == instructionsModal) {
-          instructionsModal.style.display = "none";
-      }
-  };
-});
-
-// Modal to display about information
-document.addEventListener("DOMContentLoaded", function() {
   // About Modal
   let aboutModal = document.getElementById("about-modal");
-  let aboutLink = document.getElementById("about-link"); 
+  let aboutLink = document.getElementById("about-link");
   let aboutCloseBtn = document.getElementById("about-close");
 
-  aboutLink.addEventListener("click", function(event) {
-      event.preventDefault();
-      aboutModal.style.display = "block";
+  aboutLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    aboutModal.style.display = "block";
   });
 
-  aboutCloseBtn.onclick = function() {
-      aboutModal.style.display = "none";
+  aboutCloseBtn.onclick = function () {
+    aboutModal.style.display = "none";
   };
 
-  window.onclick = function(event) {
-      if (event.target == aboutModal) {
-          aboutModal.style.display = "none";
-      }
+  window.onclick = function (event) {
+    if (event.target == aboutModal) {
+      aboutModal.style.display = "none";
+    }
   };
 });
