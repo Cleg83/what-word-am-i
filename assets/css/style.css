@@ -28,10 +28,40 @@ nav a:nth-of-type(2){
   text-align: center;
 }
 
-#welcome-heading {
-  margin-top: 50px;
+#heading-container {
   margin-bottom: 35px;
+  margin-top: 50px;
+}
+
+#welcome-heading {
   font-size: 2rem;
+  margin-bottom: 0px;
+}
+
+#secondary-welcome-heading {
+  margin-top: 7.5px;
+}
+
+#instructions-container {
+  border: 5px double #f3f3f3;
+  border-radius: 5px;
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+
+#instructions-list {
+  list-style-type: none;
+  margin: 0 auto;
+  padding-left: 0px;
+}
+
+#instructions-list li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
 }
 
 #name-heading {
