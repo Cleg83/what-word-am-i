@@ -732,3 +732,50 @@ document.getElementById("WWAMI").addEventListener("click", function () {
     console.log("Game continued");
   }
 });
+
+// How to play / instructions modal to display game instructions 
+
+document.addEventListener("DOMContentLoaded", function() {
+  let instructionsModal = document.getElementById("instructions-modal");
+  let instructionsLink = document.getElementById("how-to-play-link");
+  let closeBtn = document.getElementById("instructions-close");
+  let instructionsContent = document.getElementById("instructions-container").innerHTML;
+
+  instructionsLink.addEventListener("click", function(event) {
+      event.preventDefault();
+      document.getElementById("instructions-content").innerHTML = instructionsContent;
+      instructionsModal.style.display = "block";
+  });
+
+  closeBtn.onclick = function() {
+      instructionsModal.style.display = "none";
+  };
+
+  window.onclick = function(event) {
+      if (event.target == instructionsModal) {
+          instructionsModal.style.display = "none";
+      }
+  };
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  // About Modal
+  var aboutModal = document.getElementById("about-modal");
+  var aboutLink = document.getElementById("about-link"); 
+  var aboutCloseBtn = document.getElementById("about-close");
+
+  aboutLink.addEventListener("click", function(event) {
+      event.preventDefault();
+      aboutModal.style.display = "block";
+  });
+
+  aboutCloseBtn.onclick = function() {
+      aboutModal.style.display = "none";
+  };
+
+  window.onclick = function(event) {
+      if (event.target == aboutModal) {
+          aboutModal.style.display = "none";
+      }
+  };
+});
