@@ -760,9 +760,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
   // About Modal
-  var aboutModal = document.getElementById("about-modal");
-  var aboutLink = document.getElementById("about-link"); 
-  var aboutCloseBtn = document.getElementById("about-close");
+  let aboutModal = document.getElementById("about-modal");
+  let aboutLink = document.getElementById("about-link"); 
+  let aboutCloseBtn = document.getElementById("about-close");
 
   aboutLink.addEventListener("click", function(event) {
       event.preventDefault();
