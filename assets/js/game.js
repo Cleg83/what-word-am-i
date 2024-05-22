@@ -723,66 +723,6 @@ function resetGame() {
 
 // Header functionality----------------------------------------------------------------- 
 
-//Event listener for header home link that confirms if the user wants to return home and lose game progress
-// document.getElementById("WWAMI").addEventListener("click", function () {
-//   const returnHome = confirm("Are you sure you wish to return home?\n\nGame progress will be lost!");
-//   if (returnHome) {
-//     resetGame();
-//   } else {
-//     console.log("Game continued");
-//   }
-// });
-
-
-
-// How to play / instructions modal to display game instructions 
-
-// document.addEventListener("DOMContentLoaded", function() {
-//   let instructionsModal = document.getElementById("instructions-modal");
-//   let instructionsLink = document.getElementById("how-to-play-link");
-//   let closeBtn = document.getElementById("instructions-close");
-//   let instructionsContent = document.getElementById("instructions-container").innerHTML;
-
-//   instructionsLink.addEventListener("click", function(event) {
-//       event.preventDefault();
-//       document.getElementById("instructions-content").innerHTML = instructionsContent;
-//       instructionsModal.style.display = "block";
-//   });
-
-//   closeBtn.onclick = function() {
-//       instructionsModal.style.display = "none";
-//   };
-
-//   window.onclick = function(event) {
-//       if (event.target == instructionsModal) {
-//           instructionsModal.style.display = "none";
-//       }
-//   };
-// });
-
-// // Modal to display about information
-// document.addEventListener("DOMContentLoaded", function() {
-//   // About Modal
-//   let aboutModal = document.getElementById("about-modal");
-//   let aboutLink = document.getElementById("about-link"); 
-//   let aboutCloseBtn = document.getElementById("about-close");
-
-//   aboutLink.addEventListener("click", function(event) {
-//       event.preventDefault();
-//       aboutModal.style.display = "block";
-//   });
-
-//   aboutCloseBtn.onclick = function() {
-//       aboutModal.style.display = "none";
-//   };
-
-//   window.onclick = function(event) {
-//       if (event.target == aboutModal) {
-//           aboutModal.style.display = "none";
-//       }
-//   };
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
 
   // Home / WWAMI Modal
@@ -803,12 +743,10 @@ document.addEventListener("DOMContentLoaded", function () {
     resetGame();
   });
 
-  // Cancel and close the modal
   cancelHomeBtn.addEventListener("click", function () {
     homeModal.style.display = "none";
   });
 
-  // Close the modal when the user clicks on the close button
   homeCloseBtn.onclick = function () {
     homeModal.style.display = "none";
   };
