@@ -44,7 +44,7 @@ nav button:nth-of-type(2){
 
 #heading-container {
   margin-bottom: 35px;
-  margin-top: 50px;
+  margin-top: 35px;
 }
 
 #welcome-heading {
@@ -136,7 +136,7 @@ nav button:nth-of-type(2){
   margin-right: 5px;
   color: #f3f3f3;
   display: inline-block;
-  line-height: 40px;
+  line-height: 45px;
 }
 
 .game-btn {
