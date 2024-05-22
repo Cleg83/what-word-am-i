@@ -17,18 +17,26 @@
 <body>
   <nav>
     <a class="header-link" id="WWAMI">WWAMI</a>
-    <a class="header-link">How to play</a>
-    <a class="header-link">About</a>
+    <a class="header-link" id="how-to-play-link">How to play</a>
+    <a class="header-link" id="about-link">About</a>
   </nav>
 
   <section id="welcome-container">
-    <h1 id="welcome-heading">Welcome to WWAMI(What Word Am I?)</h1>
-    <h2>How to play:</h2>
-    <p>Guess the word without a hint: 5 points</p>
-    <p>Guess the word with 1 hint: 3 points</p>
-    <p>Guess the word with 2 hints: 2 points</p>
-    <p>Guess the word with 3 hints: 1 points</p>
-    <p>Pass: 0 points</p>
+    <div id="heading-container">
+      <h1 id="welcome-heading">Welcome to WWAMI</h1>
+      <h3 id="secondary-welcome-heading">(What Word Am I?)</h3>
+    </div>
+    <div id="instructions-container">
+      <h2>How to play:</h2>
+      <ul id="instructions-list">
+        <li>Guess the word by inputting letters into the blank tiles, <br> when you are happy with your guess click "Submit"</li>
+        <li>Guess the word without a hint: 5 points</li>
+        <li>Guess the word with 1 hint: 3 points</li>
+        <li>Guess the word with 2 hints: 2 points</li>
+        <li>Guess the word with 3 hints: 1 points</li>
+        <li>Pass: 0 points</li>
+      </ul>
+    </div>
     <h3 id="name-heading">To play, please enter your name or initials below:</h3>
     <p>(don't worry, we only use these details to allow us to refer to you as more than just "player")</p>
     <input type="text" id="player-info"></input>
@@ -52,6 +60,29 @@
     <p id="total-score"><strong>Total Score:</strong></p>
     <button id="finish-btn" class="game-btn">Finish Game</button>
   </section>
+
+  <!--Welcome page modals-->
+
+  <div id="instructions-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="instructions-close">&times;</span>
+      <div id="instructions-content">
+      </div>
+    </div>
+  </div>
+
+  <div id="about-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="about-close">&times;</span>
+      <div id="about-content">
+        <p>WWAMI was built by Matthew Cleghorn while studying web development.</p>
+        <p>WWAMI uses <a href="https://developer.wordnik.com/" target="_blank">Wordnik API</a> to generate the hints.</p>
+        <p>WWAMI uses <a href="https://www.emailjs.com/">EmailJS</a> to send the results by email.</p>
+      </div>
+    </div>
+  </div>
+
+  <!--Game page modals-->
 
   <div id="confirm-modal" class="modal">
     <div class="modal-content">
