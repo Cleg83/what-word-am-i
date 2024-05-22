@@ -758,6 +758,7 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 });
 
+// Modal to display about information
 document.addEventListener("DOMContentLoaded", function() {
   // About Modal
   let aboutModal = document.getElementById("about-modal");
