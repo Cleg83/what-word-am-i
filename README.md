@@ -6,7 +6,10 @@
   * [Project Introduction](#project-introduction)
   * [Motivation / Inspiration](#motivation-/-inspiration)
   * [Background Information](#background-information)
-  * [Project Scope](#project-scope)
+  * [Project Scope and Limitations](#project-scope-and-limitations)
+  * [Problem Statement](#problem-statment)
+  * [Proposed Solution](#proposed-solution)
+  * [Benefits and Advantages](#benefits-and-advantages)
   * [Future Versions](#future-versions)
   * [Summary](#summary)
 
@@ -65,19 +68,21 @@ Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
 
 ### Project introduction
 
-Word games have always been a popular pastime for the linguistically minded and I wanted to create a game that brings something new and exciting to the field of browser based word games with WWAMI.
+"WWAMI" (What Word Am I?) is an engaging and educational word-guessing game designed for users of all ages. The primary goal of this project is to provide an entertaining and challenging platform where players can test and improve their vocabulary skills through a series of word-guessing rounds with optional hints.
 
-The primary of objective of this project was to create an interactive, easily-navigable word guessing game using HTML, CSS & JavaScript.
+The primary of objective of this project was to create an interactive, easily-navigable, fun and educational word guessing game using HTML, CSS & JavaScript.
 
 ### Motivation / Inspiration
 
-I would be lying if I said the main inspiration for WWAMI wasn't an incredibly popular daily word game (that may or may not rhyme with curdle).
+The motivation behind creating WWAMI stems from the desire to offer a fun and interactive way for people to enhance their language skills. In today's digital age, finding enjoyable and educational content is crucial. This project aims to fill that niche by combining elements of traditional word games with modern web-based interactivity. 
 
-The motivation was to create a word guessing game that provides a new, enjoyable but challenging interactive game that offers features other word guessing games do not (mainly the ability to show hints for the word if needed).
+The aim was to create a word guessing game that provides a new, enjoyable but challenging interactive experience and offers features other word guessing games do not (mainly the ability to show hints for the word if needed).
 
-My main issue with game I play daily is the tyranny of choice. By this, I mean a series of blank tiles with no context or guidance can inhibit some players from getting started (there's simply too much choice with where to start). Though WWAMI does present itself in a similar fashion to that game, the presence of the hint button offers some reassurance if they are struggling to get started or indeed, just struggling to guess the word.  
+I would be lying if I said the main inspiration for WWAMI wasn't an incredibly popular daily word game (that may or may not rhyme with curdle), an online word guessing game that seemed to take the world by storm (at least for a good few months anyway). 
 
 ### Background Information
+
+Word games have always been a popular pastime for the linguistically minded for both recreational and educational purposes. However, many existing digital word games lack engaging interfaces or adaptive difficulty levels that keep users motivated. Recognising the potential to innovate in this space, WWAMI was conceived to offer a fresh take on word games by leveraging web technologies to create a responsive and dynamic user experience.
 
 WWAMI took around 6 weeks to build and the bulk of the time was spent on navigation and letter input. Due to the game layout being simple and text input based, I wanted the player to not have to think about navigating between tiles.
 
@@ -87,13 +92,59 @@ Thankfully (at its best), the internet is a wonderfully helpful place and hours 
 
 N.B. The commit history for this project belies the amount of time I actually spent working on it. I would say it's about 6 weeks of work that was committed regularly to a gitHub repo but due to exposing the API key (which I have since discovered is somewhat impossible without any server-side programming), I panicked and deleted that repo. Then in a rather rushed manner, I committed everything to the new repo but was careful to still (try) and give a fairly accurate snapshot of the order in which the project was built. 
 
-### Project Scope
+### Project Scope and Limitations
+
+The scope of the project includes the development of the web-based game with the aforementioned features, focusing on usability and accessibility. Known limitations include:
+
+* Word Database: The game relies on external APIs for word data, which can have limitations in availability and accuracy. 
+
+* Browser Compatibility: While efforts have been made to ensure cross-browser compatibility, some features may not work optimally on all browsers.
+
+### Problem Statement
+
+The primary problem that WWAMI aims to address is the lack of engaging, educational word games that are both challenging and accessible. Many word games either become repetitive quickly or do not adequately cater to users with different skill levels. Additionally, there is a need for games that can be easily played within a web browser without the need for extensive setup or downloads.
+
+My main issue with game I play daily is the tyranny of choice. By this, I mean a series of blank tiles with no context or guidance can inhibit some players from getting started (there's simply too much choice with where to start). WWAMI aims to address this by offering the player hints.
+
+### Proposed Solution
+
+WWAMI proposes a web-based word-guessing game with the following key features:
+
+Hint System: Players can choose to receive hints at the cost of reduced points, making the game adaptable to different skill levels.
+
+Interactive Gameplay: The game provides a smooth and interactive experience with features like editable letter divs, automatic focus shifts, and real-time score updates.
+
+Scoring Mechanism: A scoring system that rewards players based on their ability to guess the word with fewer hints, promoting repeated play and improvement.
+
+Accessibility Features: The game includes features designed to be accessible to visually impaired users, ensuring inclusivity.
+
+### Benefits and Advantages
+
+WWAMI offers several advantages over existing word games:
+
+Educational Value: Enhances vocabulary and cognitive skills in a fun, interactive manner.
+
+User Engagement: The hint system and adaptive difficulty levels keep players engaged longer.
+
+Accessibility: Designed with accessibility in mind, making it playable by a broader audience.
+
+Ease of Use: Runs directly in web browsers without the need for additional installations or plugins.
 
 ### Future Versions
 
-Ideally, I would like to offer WWAMI in as many spoken languages as possible.
+Future enhancements for WWAMI could include:
+
+Expanded Word Lists: Incorporating more extensive and diverse word lists to keep the game challenging.
+
+Multiplayer Mode: Allowing players to compete against friends or other users online.
+
+Expanded dictionary integration to allow WWAMI to be played in other languages.
+
+Additional Accessibility Features: Continuous improvements to make the game more accessible to users with various disabilities.
 
 ### Summary
+
+WWAMI is an innovative and educational word-guessing game designed to provide a fun and challenging experience for users while enhancing their vocabulary skills. By addressing the need for engaging and accessible word games, WWAMI stands out with its interactive gameplay, hint system, and focus on inclusivity. The project not only offers immediate benefits to players but also has the potential for future enhancements that will keep it relevant and enjoyable.
 
 ## User Stories
 
