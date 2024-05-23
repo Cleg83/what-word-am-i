@@ -4,7 +4,7 @@
 
 * [Rationale](#rationale)
   * [Project Introduction](#project-introduction)
-  * [Motivation / Inspiration](#motivation-and-inspiration)
+  * [Motivation and Inspiration](#motivation-and-inspiration)
   * [Background Information](#background-information)
   * [Project Scope and Limitations](#project-scope-and-limitations)
   * [Problem Statement](#problem-statement)
@@ -28,7 +28,7 @@
   * [Generating Hints](#generating-hints)
     * [Fetching Synonyms](#fetching-synonyms)
     * [Fetching Definitions](#fetching-definitions)
-    * [Fetching Rhymes](#fetching-rhyming-words)
+    * [Fetching Rhyming Words](#fetching-rhyming-words)
     * [Hint Error Handling](#hint-error-handling)
   * [The Hint Button](#the-hint-button)
   * [Submitting A Guess](#submitting-a-guess)
