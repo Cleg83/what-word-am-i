@@ -147,6 +147,8 @@ document.getElementById("word-container").addEventListener("input", function (ev
       nextLetterDiv.focus();
       placeCursorAtEnd(nextLetterDiv);
     }
+  } else if (!/[a-zA-Z]/.test(pressedKey)) {
+    target.textContent = "";
   }
 
   // Check if at least one correct letter has been guessed
@@ -574,7 +576,7 @@ function newRound() {
 }
 
 //Background colors for each new round
-const backgroundColors = ["#e68eb6", "#e14040", "#edc24c", "#e6607f", "#dbc037", "#b2a1f0", "#e16be3", "#47ad62", "#8f5656"];
+const backgroundColors = ["#e68eb6", "#E1A8EE", "#97466E", "#C67199", "#B6A999", "#BCA5AE", "#9572A1", "#FF96A6", "#FFA691"];
 
 let defaultColor = "#e68eb6";
 
@@ -600,6 +602,7 @@ document.getElementById("pass-btn").addEventListener("click", function () {
   } else {
   }
 });
+
 
 // Replaced confirms and alerts with modals for much better UI
 
