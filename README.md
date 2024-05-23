@@ -4,10 +4,10 @@
 
 * [Rationale](#rationale)
   * [Project Introduction](#project-introduction)
-  * [Motivation / Inspiration](#motivation-/-inspiration)
+  * [Motivation / Inspiration](#motivation-and-inspiration)
   * [Background Information](#background-information)
   * [Project Scope and Limitations](#project-scope-and-limitations)
-  * [Problem Statement](#problem-statment)
+  * [Problem Statement](#problem-statement)
   * [Proposed Solution](#proposed-solution)
   * [Benefits and Advantages](#benefits-and-advantages)
   * [Future Versions](#future-versions)
@@ -27,8 +27,8 @@
   * [Generating a random word](#generating-a-random-word)
   * [Generating Hints](#generating-hints)
     * [Fetching Synonyms](#fetching-synonyms)
-    * [Fetching Definitions](#fetching-definition)
-    * [Fetching Rhymes](#fetching-rhymes)
+    * [Fetching Definitions](#fetching-definitions)
+    * [Fetching Rhymes](#fetching-rhyming-words)
     * [Hint Error Handling](#hint-error-handling)
   * [The Hint Button](#the-hint-button)
   * [Submitting A Guess](#submitting-a-guess)
@@ -72,7 +72,7 @@ Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
 
 The primary of objective of this project was to create an interactive, easily-navigable, fun and educational word guessing game using HTML, CSS & JavaScript.
 
-### Motivation / Inspiration
+### Motivation and Inspiration
 
 The motivation behind creating WWAMI stems from the desire to offer a fun and interactive way for people to enhance their language skills. In today's digital age, finding enjoyable and educational content is crucial. This project aims to fill that niche by combining elements of traditional word games with modern web-based interactivity. 
 
