@@ -226,16 +226,26 @@ The navbar is pretty straightforward as the game page itself takes care of a lot
 
 The navbar contains:
   * WWAMI - Which is link to the welcome page (confirming if the user wants to return home and lose game progress). 
+
+  ![WWAMI / Home modal](assets\images\README-images\wwami-modal.png)
+
   * How To Play - Which is a link to display the game instructions.
+
+  ![How To Play modal](assets\images\README-images\how-to-play-modal.png)
+
   * About - Which displays information about the game and the technologies used to build it.
 
 ### The Welcome Page
 
 I wanted the landing page for WWAMI to provide the player with clear instructions about how to play and how the point scoring system works. As you can see below, the layout is uncluttered and the instructions are clear.
 
+![Welcome Page](assets\images\README-images\welcome-page-2.png)
+
 The input field for the player to input their name or initials is in focus when the page loads so the player is able to input their information without having to click anywhere first.
 
 When the player starts typing, the GO! button appears and on click (or by pressing enter) the game page is launched.
+
+![Go button](assets\images\README-images\go-button.png)
 
 ### The Game Page
 
