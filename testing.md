@@ -1,3 +1,15 @@
+Thorough testing for WWAMI.
+
+Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
+
+* [Manual Testing](#manual-testing)
+
+* [Automated Testing](#automated-testing)
+  * [W3C](#w3c)
+  * [JS Lint](#js-lint)
+  * [Lighthouse](#lighthouse)
+  * [Jest](#jest)
+
 # Manual Testing
 
 ## Header
