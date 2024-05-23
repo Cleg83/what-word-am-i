@@ -31,7 +31,7 @@
     * [Fetching Rhymes](#fetching-rhymes)
     * [Hint Error Handling](#hint-error-handling)
   * [The Hint Button](#the-hint-button)
-  * [The Submit Button](#the-submit-button)
+  * [Submitting A Guess](#submitting-a-guess)
   * [The Pass Button](#the-pass-button)
 * [Accessibility](#accessibility)
 
@@ -110,41 +110,47 @@ My main issue with game I play daily is the tyranny of choice. By this, I mean a
 
 WWAMI proposes a web-based word-guessing game with the following key features:
 
-Hint System: Players can choose to receive hints at the cost of reduced points, making the game adaptable to different skill levels.
+* Hint System: Players can choose to receive hints at the cost of reduced points, making the game adaptable to different skill levels.
 
-Interactive Gameplay: The game provides a smooth and interactive experience with features like editable letter divs, automatic focus shifts, and real-time score updates.
+* Interactive Gameplay: The game provides a smooth and interactive experience with features like editable letter divs, automatic focus shifts, and real-time score updates.
 
-Scoring Mechanism: A scoring system that rewards players based on their ability to guess the word with fewer hints, promoting repeated play and improvement.
+* Scoring Mechanism: A scoring system that rewards players based on their ability to guess the word with fewer hints, promoting repeated play and improvement.
 
-Accessibility Features: The game includes features designed to be accessible to visually impaired users, ensuring inclusivity.
+* Accessibility Features: The game includes features designed to be accessible to visually impaired users, ensuring inclusivity.
 
 ### Benefits and Advantages
 
 WWAMI offers several advantages over existing word games:
 
-Educational Value: Enhances vocabulary and cognitive skills in a fun, interactive manner.
+* Educational Value: Enhances vocabulary and cognitive skills in a fun, interactive manner.
 
-User Engagement: The hint system and adaptive difficulty levels keep players engaged longer.
+* User Engagement: The hint system and adaptive difficulty levels keep players engaged longer.
 
-Accessibility: Designed with accessibility in mind, making it playable by a broader audience.
+* Accessibility: Designed with accessibility in mind, making it playable by a broader audience.
 
-Ease of Use: Runs directly in web browsers without the need for additional installations or plugins.
+* Ease of Use: Runs directly in web browsers without the need for additional installations or plugins.
 
 ### Future Versions
 
-Future enhancements for WWAMI could include:
+Ideas for future enhancements to WWAMI include:
 
-Expanded Word Lists: Incorporating more extensive and diverse word lists to keep the game challenging.
+* Expanded Word Lists: Incorporating more extensive and diverse word lists to keep the game challenging.
 
-Multiplayer Mode: Allowing players to compete against friends or other users online.
+* Multiplayer Mode: Allowing players to compete against friends or other users online.
 
-Expanded dictionary integration to allow WWAMI to be played in other languages.
+* Expanded dictionary integration to allow WWAMI to be played in other languages.
 
-Additional Accessibility Features: Continuous improvements to make the game more accessible to users with various disabilities.
+* Additional Accessibility Features: Continuous improvements to make the game more accessible to users with various disabilities.
 
 ### Summary
 
-WWAMI is an innovative and educational word-guessing game designed to provide a fun and challenging experience for users while enhancing their vocabulary skills. By addressing the need for engaging and accessible word games, WWAMI stands out with its interactive gameplay, hint system, and focus on inclusivity. The project not only offers immediate benefits to players but also has the potential for future enhancements that will keep it relevant and enjoyable.
+WWAMI is an innovative and educational word-guessing game designed to provide a fun and challenging experience for users while enhancing their vocabulary skills. 
+
+By addressing the need for engaging and accessible word games, WWAMI stands out with its interactive gameplay, hint system, and focus on inclusivity. 
+
+The project not only offers immediate benefits to players but also has the potential for future enhancements that will keep it relevant and enjoyable.
+
+- - - 
 
 ## User Stories
 
@@ -167,6 +173,50 @@ As a casual player, I want to be able to use hints when needed, so that I can en
 #### User Story 5:
 
 As a returning player, I want to be able to beat my previous score, so that I can challenge myself.
+
+- - -
+
+## Design
+
+### Colour Scheme
+
+I wanted to keep the color scheme simple and only choose background colours that contrast well with both black and white (or off white to be more precise). The letter tiles in the game make use of both black and white (see below).
+
+![Letter div example](assets/images/logo.png)
+
+The default colour is light pink and the random colors the game cycles through are all soft, pastel shades.
+
+<br>
+
+![Colour-Scheme-1](assets\images\README-images\color-scheme-1.png)
+
+![Colour-Scheme-2](assets\images\README-images\color-scheme-2.png)
+
+<br>
+
+### Typography
+
+A clear font is the primary requirement for a word game font so I have opted to use two Google Fonts that complement each other well. 
+
+* [Nunito](https://fonts.google.com/specimen/Nunito) for the header and modal font.
+
+![Nunito example 1](assets\images\README-images\nunito-header-example.png)
+
+![Nunito example 2](assets\images\README-images\nunito-modal-example.png)
+
+<br>
+
+* [Roboto](https://fonts.google.com/specimen/Roboto) for the welcome page content and game page"
+
+![Roboto example 1](assets\images\README-images\welcome-page-1.png)
+
+![Roboto example 2](assets\images\README-images\roboto-game-example.png)
+
+
+
+### Wireframes
+
+- - - 
 
 ## Features
 
@@ -280,6 +330,12 @@ If they skip, the newRound function is called and a new word is generated and th
 If they choose to guess again, the hint button text reverts to it’s pre-clicked text and the player can guess again.
 
 The player can still click the hint button and it will either display the same alert or, in the case that the reason the hint was not found was due to “too many requests”, the hint will be displayed if enough time has elapsed since they last clicked the button.
+
+### The Hint Button
+
+### Submitting A Guess
+
+### The Pass Button
 
 
 
