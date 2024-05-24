@@ -38,7 +38,7 @@ let playerName;
 $("#go-btn").on("click", function () {
   console.log("Button clicked!");
   playerName = $("#player-info").val().trim();
-  $("#player-name").text("Playing as " + playerName);
+  $("#player-name").html("<h4>Playing as " + playerName + "</h4>");
   gameDisplay();
   launchGame();
 });
@@ -58,7 +58,7 @@ document.getElementById("player-info").addEventListener("keypress", function (ev
     if (this.value.trim() !== "") {
       document.getElementById("go-btn").click();
     } else {
-      alert("Please enter your name or initials before starting the game!");
+      Swal.fire("Please enter your name or initials before starting the game!");
     }
   }
 });
@@ -108,6 +108,7 @@ function launchGame() {
   wordList.splice(wordList.indexOf(randomWord), 1);
 
   displayWord(randomWord.length);
+  console.log(randomWord);
 
   // Set contentEditable for the first letter div
   let firstLetterDiv = document.querySelector(".letter-div");
@@ -297,18 +298,34 @@ document.getElementById("submit-btn").addEventListener("click", function () {
         score = 1;
         break;
     }
-    alert(`WWAMI\n\nYou scored ${score} point${score > 1 ? "s" : ""}!\n\n${getScoreMessage(score)}`);
-    updateTotalScore(score);
-    scoreTally[score]++;
-    console.log(scoreTally);
-    newRound();
+    Swal.fire({
+      title: 'WWAMI',
+      text: `You scored ${score} point${score > 1 ? "s" : ""}!\n\n${getScoreMessage(score)}`,
+      icon: 'success',
+      allowEnterKey: true,
+      allowOutsideClick: false,
+      allowEscapeKey: false
+    }).then(() => {
+      updateTotalScore(score);
+      scoreTally[score]++;
+      console.log(scoreTally);
+      newRound();
+    });
   } else {
-    alert("Incorrect. Try again!");
-    updateIncorrectLetters(userGuess);
+    Swal.fire({
+      title: 'Incorrect',
+      text: 'Try again!',
+      icon: 'error',
+      allowEnterKey: true,
+      allowOutsideClick: false,
+      allowEscapeKey: false
+    }).then(() => {
+      updateIncorrectLetters(userGuess);
+    });
   }
 });
 
-//Function to display correct message for the score achieved 
+//Function to display correct message for the score achieved
 function getScoreMessage(score) {
   switch (score) {
     case 5:
@@ -387,26 +404,35 @@ function fetchSynonyms(word, callback) {
   xhr.onreadystatechange = function () {
     if (this.readyState == 4) {
       if (this.status == 200) {
-
         let data = JSON.parse(this.responseText);
-
         console.log("Synonyms data:", data);
 
         let synonyms = data[0].words || [];
-
         synonyms = shuffleArray(synonyms);
         synonyms = synonyms.slice(0, 10);
 
         callback(null, synonyms);
       } else {
         callback("Error fetching synonyms: " + this.statusText, null);
-        const skipRoundNoSyn = confirm("We couldn't find the synonyms for this word, apologies.\n\nWe can skip this round or you guess again.\n\nPress OK to skip or cancel to guess again");
-        if (skipRoundNoSyn) {
-          alert(`The word was ${randomWord}.\n\nApologies if this would have been your guess.`);
-          newRound();
-        } else {
-          hintButton.textContent = "Hint 1";
-        }
+        Swal.fire({
+          title: "We couldn't find the synonyms for this word, apologies.",
+          text: "We can skip this round or you can guess again.\n\nPress OK to skip or Cancel to guess again.",
+          icon: 'error',
+          showCancelButton: true,
+          confirmButtonText: 'Skip Round',
+          cancelButtonText: 'Guess Again',
+          allowEnterKey: true,
+          allowOutsideClick: false,
+          allowEscapeKey: false
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(`The word was ${randomWord}.\n\nApologies if this would have been your guess.`).then(() => {
+              newRound();
+            });
+          } else {
+            hintButton.textContent = "Hint 1";
+          }
+        });
       }
     }
   };
@@ -435,7 +461,6 @@ function fetchDefinition(word, callback) {
   xhr.onreadystatechange = function () {
     if (this.readyState == 4) {
       if (this.status == 200) {
-
         let data = JSON.parse(this.responseText);
         console.log("Definition data:", data);
 
@@ -444,13 +469,25 @@ function fetchDefinition(word, callback) {
         callback(null, definition);
       } else {
         callback("Error fetching definition: " + this.statusText, null);
-        const skipRoundNoDef = confirm("We couldn't find the definition for this word, apologies.\n\nWe can skip this round or you guess again.\n\nPress OK to skip or cancel to guess again");
-        if (skipRoundNoDef) {
-          alert(`The word was ${randomWord}.\n\nApologies if this would have been your guess.`);
-          newRound();
-        } else {
-          hintButton.textContent = "Hint 2";
-        }
+        Swal.fire({
+          title: "We couldn't find the definition for this word, apologies.",
+          text: "We can skip this round or you can guess again.\n\nPress OK to skip or Cancel to guess again.",
+          icon: 'error',
+          showCancelButton: true,
+          confirmButtonText: 'Skip Round',
+          cancelButtonText: 'Guess Again',
+          allowEnterKey: true,
+          allowOutsideClick: false,
+          allowEscapeKey: false
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(`The word was ${randomWord}.\n\nApologies if this would have been your guess.`).then(() => {
+              newRound();
+            });
+          } else {
+            hintButton.textContent = "Hint 2";
+          }
+        });
       }
     }
   };
@@ -479,24 +516,34 @@ function fetchRhymes(word, callback) {
     if (this.readyState == 4) {
       if (this.status == 200) {
         let data = JSON.parse(this.responseText);
-        console.log("rhymes data:", data);
+        console.log("Rhymes data:", data);
 
         let rhymes = data[0].words || [];
         rhymes = shuffleArray(rhymes);
-
         rhymes = rhymes.slice(0, 10);
 
         callback(null, rhymes);
       } else {
         callback("Error fetching rhymes: " + this.statusText, null);
-        const skipRoundNoRhymes = confirm("We couldn't find the rhyming words for this word, apologies.\n\nWe can skip this round or you guess again.\n\nPress OK to skip or cancel to guess again");
-        if (skipRoundNoRhymes) {
-          alert(`The word was ${randomWord}.\n\nApologies if this would have been your guess.`);
-          newRound();
-        } else {
-          hintButton.style.display = "block";
-          hintButton.textContent = "Hint 3";
-        }
+        Swal.fire({
+          title: "We couldn't find the rhyming words for this word, apologies.",
+          text: "We can skip this round or you can guess again.\n\nPress OK to skip or Cancel to guess again.",
+          icon: 'error',
+          showCancelButton: true,
+          confirmButtonText: 'Skip Round',
+          cancelButtonText: 'Guess Again',
+          allowEnterKey: true,
+          allowOutsideClick: false,
+          allowEscapeKey: false
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(`The word was ${randomWord}.\n\nApologies if this would have been your guess.`).then(() => {
+              newRound();
+            });
+          } else {
+            hintButton.textContent = "Hint 3";
+          }
+        });
       }
     }
   };
@@ -522,7 +569,7 @@ function clearHintContainers() {
   hintThreeContainer.style.display = "none";
 }
 
-// Function to update hint button text content 
+// Function to update hint button text content
 function updateHintButton() {
   if (hintButton.textContent == "Hint 1") {
     hintButton.textContent = "Hint 2";
@@ -613,21 +660,35 @@ function getRandomColor() {
   return randomColor;
 }
 
-// Event listener for Pass button that checks if user wants to pass, updates score if they do and shows what the game word was
 document.getElementById("pass-btn").addEventListener("click", function () {
-  const passRound = confirm("Are you sure you want to pass?\n\nYou'll get 0 points");
-  if (passRound) {
-    alert(`Bad luck!\n\nThe word was ${randomWord}.`);
-    updateTotalScore(0);
-    scoreTally[0]++;
-    console.log(scoreTally);
-    newRound();
-  } else {
-  }
+  Swal.fire({
+    title: 'Are you sure you want to pass?',
+    text: "You'll get 0 points",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, pass it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: 'Bad luck!',
+        text: `The word was ${randomWord}.`,
+        icon: 'info',
+        allowEscapeKey: false,
+        allowEnterKey: true,
+        allowOutsideClick: false
+      }).then(() => {
+        updateTotalScore(0);
+        scoreTally[0]++;
+        console.log(scoreTally);
+        newRound();
+      });
+    }
+  });
 });
 
-
-// Replaced confirms and alerts with modals for much better UI
+// Replaced confirms and Swal.fires with modals for much better UI
 
 // Event listener for finish button
 document.getElementById("finish-btn").addEventListener("click", function () {
@@ -718,10 +779,10 @@ function sendEmail(templateParams) {
   emailjs.send("gmail", "WWAMI-scores", templateParams)
     .then(function (response) {
       console.log("Email sent successfully:", response);
-      alert("Results sent successfully!");
+      Swal.fire("Results sent successfully!");
     }, function (error) {
       console.error("Email sending failed:", error);
-      alert("Failed to send results. Please try again later.");
+      Swal.fire("Failed to send results. Please try again later.");
     });
 }
 
