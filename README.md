@@ -27,6 +27,7 @@ Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
   * [Wireframes](#wireframes)
 
 * [Features](#features)
+  * [Favicon](#favicon)
   * [The Navbar](#the-navbar)
   * [The Welcome Page](#the-welcome-page)
   * [The Game Page](#the-game-page)
@@ -44,7 +45,7 @@ Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
 
 * [Technologies](#technologies)
   * [Languages](#languages)
-  * [Frameworks, Libraries & Programs](#frameworks-libraries--programs)
+  * [Frameworks, Libraries and Programs](#frameworks-libraries-and-programs)
 
 * [Deployment & Development](#deployment--development)
   * [Deployment](#deployment)
@@ -141,6 +142,8 @@ Ideas for future enhancements to WWAMI include:
 
 * Expanded dictionary integration to allow WWAMI to be played in other languages.
 
+* Replace alerts and confirms with modals for a more modern user experience. 
+
 * Additional Accessibility Features: Continuous improvements to make the game more accessible to users with various disabilities.
 
 ### Summary
@@ -220,6 +223,12 @@ A clear font is the primary requirement for a word game font so I have opted to 
 - - - 
 
 ## Features
+
+### Favicon
+
+For WWAMI, I wanted to favicon to be a game tile with the default-color just showing in the background:
+
+![Favicon](assets/images/README-images/favicon-image.png)
 
 ### The Navbar
 
@@ -376,13 +385,36 @@ The text content of the button updates after displaying the hint (or reverts bac
 
 ### Submitting A Guess
 
+When the player submits a guess, quite a few things need to happen:
 
+* The word has to be checked to see if it matches the game word.
+* If the guess is correct, the hint button text content needs to be checked to ensure the correct score message is displayed and the total score is updated.
+
+![Corerct guess](assets/images/README-images/submit-correct.png)
+
+* If the guess is incorrect, the below alert shows:
+
+![Incorrect guess](assets/images/README-images/submit-incorrect.png)
+
+Then the game resumes and any correctly guessed letters stay in place and are not editable:
+
+![Update correct letters](assets/images/README-images/update-correct-letters.png)
 
 ### The Pass Button
 
+When the player clicks the pass button I wanted an alert to display, confirming if they wish to pass:
+
+![Pass confirm](assets/images/README-images/pass-confirm.png)
+
+If the player clicks cancel, the game resumes. If they click pass, the below alert displays:
+
+![Pass show-word ](assets/images/README-images/pass-show-word.png)
+
+When the player clicks OK, a new round is launched, the total score updates by 0 and a score of 0 is added to the score tally.
+
 ### Emailing The Results
 
-As there is no high scores capability, I wanted the player to be able to keep track of their scores another way.
+As there is (currently) no high scores capability, I wanted the player to be able to keep track of their scores another way.
 
 The best solution I could implement (for now) was to have the option to email the results.
 
@@ -393,6 +425,27 @@ Rather than just sending the total score by email, I wanted include a breakdown 
 Below shows the email that the player receives (including the nice breakdown of scores). It also includes the name they entered when starting the game.
 
 ![Email example](assets/images/README-images/email.png)
+
+## Technologies
+
+### Languages
+
+HTML, CSS & JavaScript
+
+### Frameworks, Libraries and Programs
+
+[JQuery](https://jquery.com/) was used for the simplest event listeners (only used on the welcome page and to launch the game). JQuery would have muddied the intentions of the more complex functions so Vanilla JS was a better option for the majority of the site.
+
+[Wordnik API](https://developer.wordnik.com/) was used to fetch the word data to be used to display hints.
+
+[EmailJS](https://www.emailjs.com) was used to send the player their scores by email. 
+
+As I wanted to keep the design layout simple, I did not need to use any frameworks such as Bootstrap or Tailwind to achieve the desired layout.
+
+
+
+
+
 
 
 
