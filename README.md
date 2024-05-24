@@ -153,7 +153,9 @@ Ideas for future enhancements to WWAMI include:
 
 * Additional Accessibility Features: Continuous improvements to make the game more accessible to users with various disabilities.
 
-* Fix any bugs (currently 1 of them, see [bugs](#bugs)).
+* Fix the bug with navigation on text input.
+
+* Overhaul the design as it is currently too basic as the focus was on functionality over design. I would like to collaborate with a talented designer on this as design is sadly, my weakest area. 
 
 ### Summary
 
@@ -541,20 +543,20 @@ Please visit [Wordnik API](https://developer.wordnik.com/) and [EmailJS](https:/
 
 ### Manual Testing
 
-Please see [testing.md](testing/testing.md) for detailed manual testing information.
+Please see [testing.md](/testing.md) for detailed manual testing information.
 
 ### Automated Testing
 
 #### W3C
 
-  * W3C testing for index.html and style.css can be found [here](testing/w3c)
+  * W3C testing for index.html and style.css can be found [here](assets//testing/w3c)
 
 #### Lighthouse
 
-  * Lighthouse Scores can be found [here](testing/lighthouse)
+  * Lighthouse Scores can be found [here](assets/testing/lighthouse)
 
 #### JS Hint
-  * JS-Hint information can be found [here](js-hint)
+  * JS-Hint information can be found [here](assets/testing/js-hint)
 
  ### Bugs
 
@@ -590,17 +592,10 @@ I didn't need to use any external code as the functionality of this game is quit
 
  * To help with displaying correctly guessed letters (https://www.w3schools.com/jsref/prop_html_contenteditable.asp)
 
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
+ * I have to mentioned the WebDev simplified YouTube channel as all his JavaScript videos have been immensely useful (https://www.youtube.com/@WebDevSimplified)
+
+ - - -
+ 
 
 
 
