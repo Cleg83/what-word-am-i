@@ -4,6 +4,8 @@
 
 Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
 
+- - -
+
 ## CONTENTS
 
 * [Rationale](#rationale)
@@ -23,6 +25,9 @@ Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
   * [Colour Scheme](#colour-scheme)
   * [Typography](#typography)
   * [Wireframes](#wireframes)
+    * [Desktop](#desktop)
+    * [Tablet](#tablet)
+    * [Mobile](#mobile)
 
 * [Features](#features)
   * [Favicon](#favicon)
@@ -62,8 +67,6 @@ Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
   * [Bugs](#Bugs)
   
 * [Credits](#credits)
-  * [External code](#external-code)
-
 
 ---
 
@@ -147,6 +150,8 @@ Ideas for future enhancements to WWAMI include:
 
 * Additional Accessibility Features: Continuous improvements to make the game more accessible to users with various disabilities.
 
+* Fix any bugs (currently 1 of them, see [bugs](#bugs)).
+
 ### Summary
 
 WWAMI is an innovative and educational word-guessing game designed to provide a fun and challenging experience for users while enhancing their vocabulary skills. 
@@ -220,6 +225,13 @@ A clear font is the primary requirement for a word game font so I have opted to 
 
 
 ### Wireframes
+
+#### Desktop 
+![Desktop Wireframe](assets/images/readme-img/wireframe-desktop.png)
+
+#### Tablet
+
+#### Mobile
 
 - - - 
 
@@ -344,7 +356,6 @@ Rhyming words a fetched the same way as synonyms in that an array is returned, I
 ![Rhymes 1](assets/images/readme-img/rhymes-1.png)
 
 
-
 ### Hint error handling
 
 Due to relying on API calls to fetch the hints, I wanted to incorporate error handling into the game play: Rather than only logging errors to the console and alerting the player that there is an error, I have added a confirm element to each of the fetch hint functions that alerts the player of the error and asks if they want to skip the round or guess again.
@@ -427,6 +438,8 @@ Below shows the email that the player receives (including the nice breakdown of 
 
 ![Email example](assets/images/readme-img/email.png)
 
+- - -
+
 ## Technologies
 
 ### Languages
@@ -444,6 +457,8 @@ HTML, CSS & JavaScript
 [Sweet Alert 2](https://sweetalert2.github.io/) to replace browser alerts.
 
 As I wanted to keep the design layout simple, I did not need to use any frameworks such as Bootstrap or Tailwind to achieve the desired layout.
+
+- - -
 
 ## Deployment and Development
 
@@ -489,17 +504,19 @@ As this project uses Wordnik API and EmailJS, you will need to sign up for both 
 
 Please visit [Wordnik API](https://developer.wordnik.com/) and [EmailJS](https://www.emailjs.com) to obtain your unique API keys. 
 
+- - -
+
 ## Testing
 
 ### Manual Testing
 
-Please see [testing.md](/testing.md) for detailed manual testing information.
+Please see [testing.md](testing/testing.md) for detailed manual testing information.
 
 ### Automated Testing
 
-  * [W3C](#W3C)
-  * [Lighthouse](#Lighthouse)
-  * [JS-Hint](#js-hint)
+  * W3C testing for index.html and style.css can be found [here](testing/w3c)
+  * Lighthouse Scores can be found [here](testing/lighthouse)
+  * JS-Hint information can be found [here](js-hint)
 
  ### Bugs
 
@@ -514,6 +531,31 @@ Please see [testing.md](/testing.md) for detailed manual testing information.
  This will be fixed once I've found a solution that doesn't compromise other navigational functionality. 
 
  I don't believe this bug has too much of a detrimental effect on the playability or user experience but I would like to solve it. 
+
+- - -
+
+ ## Credits
+
+ A lot of the functionality used for this project was covered in the course materials for the Code Institute Full Stack Development Diploma, however I did need to scour the web for answers to the trickier aspects of dealing with text input, dealing with white space & navigation on key down events.
+
+I didn't need to use any external code as the functionality of this game is quite specific.
+
+ The most useful articles I found to help with this project are listed below:
+
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
 
 
 
