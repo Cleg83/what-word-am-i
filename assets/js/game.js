@@ -86,12 +86,26 @@ function launchGame() {
     return;
   }
 
-  // Selects a random index from wordList array (that hasn't been used before)
-  randomIndex = Math.floor(Math.random() * wordList.length);
-  randomWord = wordList[randomIndex].toLowerCase();
+  // Filter the word list based on screen size
+  let filteredWordList;
+  if (window.innerWidth <= 500) {
+    filteredWordList = wordList.filter(word => word.length <= 6);
+  } else {
+    filteredWordList = wordList.slice(); // Use the original word list
+  }
 
-  // Remove the selected word from wordList to ensure it's not repeated
-  wordList.splice(randomIndex, 1);
+  // Check if there are words remaining after filtering
+  if (filteredWordList.length === 0) {
+    // Reset the word list if no words meet the criteria
+    filteredWordList = wordList.slice();
+  }
+
+  // Selects a random index from the filtered word list
+  randomIndex = Math.floor(Math.random() * filteredWordList.length);
+  randomWord = filteredWordList[randomIndex].toLowerCase();
+
+  // Remove the selected word from the word list to ensure it's not repeated
+  wordList.splice(wordList.indexOf(randomWord), 1);
 
   displayWord(randomWord.length);
 
@@ -808,3 +822,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 });
+
