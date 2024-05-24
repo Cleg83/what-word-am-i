@@ -39,6 +39,7 @@ Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
   * [The Hint Button](#the-hint-button)
   * [Submitting A Guess](#submitting-a-guess)
   * [The Pass Button](#the-pass-button)
+  * [Emailing The Results](#emailing-the-results)
 * [Accessibility](#accessibility)
 
 * [Technologies](#technologies)
@@ -235,6 +236,8 @@ The navbar contains:
 
   * About - Which displays information about the game and the technologies used to build it.
 
+  ![About modal](assets/images/README-images/about-modal.png)
+
 ### The Welcome Page
 
 I wanted the landing page for WWAMI to provide the player with clear instructions about how to play and how the point scoring system works. As you can see below, the layout is uncluttered and the instructions are clear.
@@ -326,6 +329,10 @@ From this one result, I only had to extract the "text" element and then display 
 
 ### Fetching rhyming words
 
+Rhyming words a fetched the same way as synonyms in that an array is returned, I then needed to shuffle that array and select 10 rhyming words to display:
+
+![Rhymes 1](assets/images/README-images/rhymes-1.png)
+
 
 
 ### Hint error handling
@@ -357,11 +364,37 @@ The player can still click the hint button and it will either display the same a
 
 ### The Hint Button
 
+The hint button is not only WWAMI's USP, it is also crucial to the points scoring system for WWAMI. 
 
+If the player has not clicked the hint button and submits a correct guess, they get 5 points. If they have shown 1 hint, they get 3 point. 2 hints, they get 2 points. 3 hints they get 1 point. 
+
+How does WWAMI know how many hints have been shown. This is quite simple really and seemed like the most elegant solution - it is based on the text content of the hint button (and for only 1 point, it is based on the button being hidden). 
+
+Each time the hint button text content updates, the points reduce and after the final hint has been shown, the button is hidden so it's clear there are no more hints available.
+
+The text content of the button updates after displaying the hint (or reverts back if there is an error fetching the hint). 
 
 ### Submitting A Guess
 
+
+
 ### The Pass Button
+
+### Emailing The Results
+
+As there is no high scores capability, I wanted the player to be able to keep track of their scores another way.
+
+The best solution I could implement (for now) was to have the option to email the results.
+
+For this I have used [EmailJS](https://www.emailjs.com) 
+
+Rather than just sending the total score by email, I wanted include a breakdown of the scores which is stored in a variable named scoreTally. 
+
+Below shows the email that the player receives (including the nice breakdown of scores). It also includes the name they entered when starting the game.
+
+![Email example](assets/images/README-images/email.png)
+
+
 
 
 
