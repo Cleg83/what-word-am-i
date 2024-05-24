@@ -8,6 +8,7 @@
   <link type="text/css" rel="stylesheet" href="assets/css/style.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     (function () {
       emailjs.init("NHWJ6RtgECRaW-CFC");
@@ -17,12 +18,14 @@
 
 <body>
 
-  <!-- Navbar -->
-  <nav>
-    <button class="nav-btn" id="WWAMI" aria-label="Home">WWAMI</button>
-    <button class="nav-btn" id="how-to-play-link" aria-label="How to Play">How to play</button>
-    <button class="nav-btn" id="about-link" aria-label="About">About</button>
-  </nav>
+  <!-- Header -->
+  <header>
+    <nav>
+      <button class="nav-btn" id="WWAMI" aria-label="Home">WWAMI</button>
+      <button class="nav-btn" id="how-to-play-link" aria-label="How to Play">How to play</button>
+      <button class="nav-btn" id="about-link" aria-label="About">About</button>
+    </nav>
+  </header>
 
   <!-- Welcome Page -->
   <section id="welcome-container" aria-labelledby="welcome-heading">
@@ -52,19 +55,21 @@
 
   <!-- Game Page -->
   <section id="game-container" class="hide" aria-labelledby="game-heading">
-    <h4 id="player-name"></h4>
-    <h1 id="game-heading">What Word Am I?</h1>
-    <div id="word-container" role="region" aria-live="polite"></div>
-    <button id="submit-btn" class="game-btn" aria-label="Submit Guess">Submit</button>
-    <button id="hint-btn" class="game-btn" aria-label="Get a Hint"></button>
-    <div id="hint-container" role="region" aria-live="polite">
-      <div id="hint-one"></div>
-      <div id="hint-two"></div>
-      <div id="hint-three"></div>
+    <div id="game-area">
+      <div id="player-name"></div>
+      <h1 id="game-heading">What Word Am I?</h1>
+      <div id="word-container" role="region" aria-live="polite"></div>
+      <button id="submit-btn" class="game-btn" aria-label="Submit Guess">Submit</button>
+      <button id="hint-btn" class="game-btn" aria-label="Get a Hint"></button>
+      <div id="hint-container" role="region" aria-live="polite">
+        <div id="hint-one"></div>
+        <div id="hint-two"></div>
+        <div id="hint-three"></div>
+      </div>
+      <button id="pass-btn" class="game-btn" aria-label="Pass">Pass</button>
+      <p id="total-score"><strong>Total Score:</strong></p>
+      <button id="finish-btn" class="game-btn" aria-label="Finish Game">Finish Game</button>
     </div>
-    <button id="pass-btn" class="game-btn" aria-label="Pass">Pass</button>
-    <p id="total-score"><strong>Total Score:</strong></p>
-    <button id="finish-btn" class="game-btn" aria-label="Finish Game">Finish Game</button>
   </section>
 
   <!--Header modals-->
@@ -72,7 +77,7 @@
   <!-- Home / WWAMI Modal -->
   <div id="home-modal" class="modal" role="dialog" aria-labelledby="home-content" aria-hidden="true">
     <div class="modal-content">
-      <span class="close" id="home-close" aria-label="Close">&times;</span>
+      <span class="close" id="home-close">&times;</span>
       <div id="home-content">
         <p><strong>Are you sure you wish to return home?</strong><br><br>Game progress will be lost!</p>
         <button id="confirm-home" aria-label="Confirm Return Home">Yes</button>
@@ -83,7 +88,7 @@
 
   <div id="instructions-modal" class="modal" role="dialog" aria-labelledby="instructions-content" aria-hidden="true">
     <div class="modal-content">
-      <span class="close" id="instructions-close" aria-label="Close">&times;</span>
+      <span class="close" id="instructions-close">&times;</span>
       <div id="instructions-content">
       </div>
     </div>
@@ -91,12 +96,16 @@
 
   <div id="about-modal" class="modal" role="dialog" aria-labelledby="about-content" aria-hidden="true">
     <div class="modal-content">
-      <button class="close" id="about-close" aria-label="Close">&times;</button>
+      <button class="close" id="about-close">&times;</button>
       <div id="about-content">
-        <p>WWAMI was built by Matthew Cleghorn while studying for the Code Institute Full Stack Web Development Diploma.</p>
-        <p>WWAMI uses <a href="https://developer.wordnik.com/" target="_blank">Wordnik API</a> to generate the hints.</p>
+        <p>WWAMI was built by Matthew Cleghorn while studying for the Code Institute Full Stack Web Development Diploma.
+        </p>
+        <p>WWAMI uses <a href="https://developer.wordnik.com/" target="_blank">Wordnik API</a> to generate the hints.
+        </p>
         <p>WWAMI uses <a href="https://www.emailjs.com/">EmailJS</a> to send the results by email.</p>
-        <p>Apologies to UK players - the words are all US English spelling due to <a href="https://developer.wordnik.com/" target="_blank">Wordnik API</a> only providing data for US spellings.</p>
+        <p>Apologies to UK players - the words are all US English spelling due to <a
+            href="https://developer.wordnik.com/" target="_blank">Wordnik API</a> only providing data for US spellings.
+        </p>
       </div>
     </div>
   </div>
@@ -105,7 +114,7 @@
 
   <div id="confirm-modal" class="modal" role="dialog" aria-labelledby="confirm-modal-content" aria-hidden="true">
     <div class="modal-content" id="confirm-modal-content">
-      <button class="close" id="confirm-close" aria-label="Close">&times;</button>
+      <button class="close" id="confirm-close">&times;</button>
       <h2>Finish Game</h2>
       <p>Are you sure you wish to WWAMI no more?</p>
       <button id="confirm-finish" aria-label="Confirm Finish Game">Yes</button>
