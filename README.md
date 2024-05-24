@@ -1,3 +1,9 @@
+![Am I responsive screenshot]
+
+### WWAMI (What Word Am I?) is an exciting new word game where the player has to guess a random word to score points. 
+
+Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
+
 ## CONTENTS
 
 * [WWAMI](#WWAMI)
@@ -56,12 +62,6 @@
   * [External code](#external-code)
   * [Media](#media)
 
-# WWAMI 
-
-### WWAMI (What Word Am I?) is an exciting new word game where the player has to guess a random word to score points. 
-
-Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
- 
 ---
 
 ## Rationale
@@ -249,9 +249,13 @@ When the player starts typing, the GO! button appears and on click (or by pressi
 
 ### The Game Page
 
+![The Game Page](assets/images/README-images/game-page-1.png)
+
 The game page displays blank letter divs as tiles that the player types letters in. The word the player has to guess is generated randomly from an array of words.
 
-I wanted the focus to be on the first blank tile when the game loads so that the player can immediately start playing.
+I wanted the focus to be on the first blank tile when the game loads so that the player can immediately start playing. As well as the cursor automatically being the first tile, the border also changes colour when in focus (see below).
+
+![First tile focus](assets/images/README-images/first-tile-focus.png)
 
 Once the player has typed a letter, the focus moves to the next blank tile but the player is able to navigate freely between the tiles with arrow keys or by touching a blank tile on a touch screen device. 
 
@@ -308,6 +312,8 @@ From this I had to extract the "words" array so I could manipulate the data with
 
 The synonyms are then displayed as a comma separated string with the first letter of the first word capitalised and because it's a word game and details are important, it ends with a full-stop.
 
+![Synonyms 1](assets/images/README-images/synonyms-1.png)
+
 ### Fetching definitions
 
 This was less complicated than fetching the synonyms and rhyming words because you can limit the number of responses the API returns to only one definition in the URL:
@@ -315,6 +321,8 @@ This was less complicated than fetching the synonyms and rhyming words because y
     let hintTwo = `${word}/definitions?limit=1&includeRelated=false
 
 From this one result, I only had to extract the "text" element and then display the definition to the player.
+
+![Definition 1](assets/images/README-images/def-1.png)
 
 ### Fetching rhyming words
 
@@ -324,7 +332,13 @@ From this one result, I only had to extract the "text" element and then display 
 
 Due to relying on API calls to fetch the hints, I wanted to incorporate error handling into the game play: Rather than only logging errors to the console and alerting the player that there is an error, I have added a confirm element to each of the fetch hint functions that alerts the player of the error and asks if they want to skip the round or guess again.
 
-If they skip, the newRound function is called and a new word is generated and the score and score tally remain unchanged (see below example for the fetchRhymes function).
+![Error 1](assets/images/README-images/error-1.png)
+
+If they skip, the 2nd alert displays:
+
+![Error 2](assets/images/README-images/error-2.png)
+
+ The newRound function is called and a new word is generated and the score and score tally remain unchanged (see below example for the fetchRhymes function).
 
     else {
         callback("Error fetching rhymes: " + this.statusText, null);
@@ -342,6 +356,8 @@ If they choose to guess again, the hint button text reverts to it’s pre-clicke
 The player can still click the hint button and it will either display the same alert or, in the case that the reason the hint was not found was due to “too many requests”, the hint will be displayed if enough time has elapsed since they last clicked the button.
 
 ### The Hint Button
+
+
 
 ### Submitting A Guess
 
