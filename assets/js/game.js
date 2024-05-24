@@ -360,6 +360,7 @@ function shuffleArray(array) {
 
 const callGame = btoa(gameCall);
 
+// Function to fetch the synonyms of the game word
 function fetchSynonyms(word, callback) {
   let xhr = new XMLHttpRequest();
   let baseURL = "https://api.wordnik.com/v4/word.json/";
@@ -399,6 +400,7 @@ function fetchSynonyms(word, callback) {
 
 const hintOneContainer = document.getElementById("hint-one");
 
+// Function to display the synonyms of the game word
 function displaySynonyms(synonyms) {
   let synonymsString = synonyms.join(", ");
   synonymsString = synonymsString.charAt(0).toUpperCase() + synonymsString.slice(1);
@@ -406,6 +408,7 @@ function displaySynonyms(synonyms) {
   hintOneContainer.style.display = "block";
 }
 
+// Function to fetch the definition of the game word
 function fetchDefinition(word, callback) {
   let xhr = new XMLHttpRequest();
   let baseURL = "https://api.wordnik.com/v4/word.json/";
@@ -441,11 +444,13 @@ function fetchDefinition(word, callback) {
 
 const hintTwoContainer = document.getElementById("hint-two");
 
+// Function to display the definition of the game word
 function displayDefinition(definition) {
   hintTwoContainer.innerHTML = "<h4 class='hint-heading'>My definition is:</h4>" + definition;
   hintTwoContainer.style.display = "block";
 }
 
+// Function to fetch the rhyming words for the game word
 function fetchRhymes(word, callback) {
   console.log("Fetching rhymes for word:", word);
   let xhr = new XMLHttpRequest();
@@ -485,6 +490,7 @@ function fetchRhymes(word, callback) {
 
 const hintThreeContainer = document.getElementById("hint-three");
 
+//Function to display the rhyming words for the game word
 function displayRhymes(rhymes) {
   let rhymeString = rhymes.join(", ");
   rhymeString = rhymeString.charAt(0).toUpperCase() + rhymeString.slice(1);
@@ -492,6 +498,7 @@ function displayRhymes(rhymes) {
   hintThreeContainer.style.display = "block";
 }
 
+// Pretty self-explanatory but this clears the hint containers
 function clearHintContainers() {
   hintOneContainer.innerHTML = "";
   hintOneContainer.style.display = "none";
@@ -501,6 +508,7 @@ function clearHintContainers() {
   hintThreeContainer.style.display = "none";
 }
 
+// Function to update hint button text content 
 function updateHintButton() {
   if (hintButton.textContent == "Hint 1") {
     hintButton.textContent = "Hint 2";
@@ -512,6 +520,7 @@ function updateHintButton() {
   }
 }
 
+// Event listener for hint button ti display the correct hint based on the hint button text content
 document.getElementById("hint-btn").addEventListener("click", function () {
   console.log("Hint button clicked");
   if (hintButton.textContent == "Hint 1") {
