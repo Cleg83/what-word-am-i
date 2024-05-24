@@ -110,7 +110,6 @@ function launchGame() {
   wordList.splice(wordList.indexOf(randomWord), 1);
 
   displayWord(randomWord.length);
-  console.log(randomWord);
 
   // Set contentEditable for the first letter div
   let firstLetterDiv = document.querySelector(".letter-div");
