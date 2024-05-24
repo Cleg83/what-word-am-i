@@ -1,14 +1,51 @@
+![WWAMI shown on a variety of screen sizes](/assets/images/readme-img/game-page-ss.png)
+
 Thorough testing for WWAMI.
 
 Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
 
-* [Manual Testing](#manual-testing)
-
 * [Automated Testing](#automated-testing)
   * [W3C](#w3c)
-  * [JS Lint](#js-lint)
   * [Lighthouse](#lighthouse)
-  * [Jest](#jest)
+  * [JS Hint](#js-hint)
+
+
+* [Manual Testing](#manual-testing)
+
+# Automated Testing
+
+## W3C
+
+* index.html
+
+![index.html](/assets/testing/w3c/index-val.png)
+
+* CSS 
+
+![css](/assets/testing/w3c/css-val.png)
+
+## Lighthouse
+
+![lighthouse-1](/assets/testing/lighthouse/lighthouse-1.png)
+
+![lighthouse-2](/assets/testing/lighthouse/lighthouse-2.png)
+
+
+## JS Hint
+
+No issues when passed through JS Hint.
+
+All warnings are ES6 related and the undeclared variables are due to sweet alerts, jQuery and EmailJS.
+
+![1](/assets/testing/js-hint/js-hint-1.png)
+![2](/assets/testing/js-hint/js-hint-2.png)
+![3](/assets/testing/js-hint/js-hint-3.png)
+![4](/assets/testing/js-hint/js-hint-4.png)
+![5](/assets/testing/js-hint/js-hint-5.png)
+![6](/assets/testing/js-hint/js-hint-6.png)
+![7](/assets/testing/js-hint/js-hint-7.png)
+
+<br>
 
 # Manual Testing
 
