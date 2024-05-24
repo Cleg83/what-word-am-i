@@ -520,7 +520,7 @@ function updateHintButton() {
   }
 }
 
-// Event listener for hint button ti display the correct hint based on the hint button text content
+// Event listener for hint button to display the correct hint based on the hint button text content
 document.getElementById("hint-btn").addEventListener("click", function () {
   console.log("Hint button clicked");
   if (hintButton.textContent == "Hint 1") {
