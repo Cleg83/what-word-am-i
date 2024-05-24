@@ -1,4 +1,4 @@
-![Am I responsive screenshot]
+![WWAMI shown on a variety of screen sizes](assets/images/readme-img/game-page-ss.png)
 
 ### WWAMI (What Word Am I?) is an exciting new word game where the player has to guess a random word to score points. 
 
@@ -69,6 +69,8 @@ Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
 * [Credits](#credits)
 
 ---
+
+<br>
 
 ## Rationale
 
@@ -162,6 +164,8 @@ The project not only offers immediate benefits to players but also has the poten
 
 - - - 
 
+<br>
+
 ## User Stories
 
 #### User Story 1: 
@@ -185,6 +189,8 @@ As a casual player, I want to be able to use hints when needed, so that I can en
 As a returning player, I want to be able to beat my previous score, so that I can challenge myself.
 
 - - -
+
+<br> 
 
 ## Design
 
@@ -230,10 +236,14 @@ A clear font is the primary requirement for a word game font so I have opted to 
 ![Desktop Wireframe](assets/images/readme-img/wireframe-desktop.png)
 
 #### Tablet
+![Tablet wireframe](assets/images/readme-img/wireframe-tablet.png)
 
 #### Mobile
+![Mobile Wireframe](assets/images/readme-img/wireframe-mobile.png)
 
 - - - 
+
+<br>
 
 ## Features
 
@@ -440,6 +450,8 @@ Below shows the email that the player receives (including the nice breakdown of 
 
 - - -
 
+<br>
+
 ## Technologies
 
 ### Languages
@@ -456,9 +468,13 @@ HTML, CSS & JavaScript
 
 [Sweet Alert 2](https://sweetalert2.github.io/) to replace browser alerts.
 
+[Balsamiq](https://balsamiq.com/) for wireframes.
+
 As I wanted to keep the design layout simple, I did not need to use any frameworks such as Bootstrap or Tailwind to achieve the desired layout.
 
 - - -
+
+<br>
 
 ## Deployment and Development
 
@@ -506,6 +522,8 @@ Please visit [Wordnik API](https://developer.wordnik.com/) and [EmailJS](https:/
 
 - - -
 
+<br>
+
 ## Testing
 
 ### Manual Testing
@@ -534,6 +552,8 @@ Please see [testing.md](testing/testing.md) for detailed manual testing informat
 
 - - -
 
+<br>
+
  ## Credits
 
  A lot of the functionality used for this project was covered in the course materials for the Code Institute Full Stack Development Diploma, however I did need to scour the web for answers to the trickier aspects of dealing with text input, dealing with white space & navigation on key down events.
@@ -542,9 +562,14 @@ I didn't need to use any external code as the functionality of this game is quit
 
  The most useful articles I found to help with this project are listed below:
 
- *
- *
- *
+ * Trim / dealing with whitespace (https://www.w3schools.com/js/js_string_methods.asp#mark_trim) 
+
+ * Array shuffling (https://stackoverflow.com/questions/59810241/how-to-fisher-yates-shuffle-a-javascript-array)
+
+ * Lots of useful info for creating modals (https://www.w3schools.com/howto/howto_css_modals.asp)
+
+ * To help with displaying correctly guessed letters (https://www.w3schools.com/jsref/prop_html_contenteditable.asp)
+
  *
  *
  *
