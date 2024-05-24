@@ -6,8 +6,6 @@ Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
 
 ## CONTENTS
 
-* [WWAMI](#WWAMI)
-
 * [Rationale](#rationale)
   * [Project Introduction](#project-introduction)
   * [Motivation and Inspiration](#motivation-and-inspiration)
