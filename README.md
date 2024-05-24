@@ -44,13 +44,14 @@ Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
   * [Submitting A Guess](#submitting-a-guess)
   * [The Pass Button](#the-pass-button)
   * [Emailing The Results](#emailing-the-results)
+
 * [Accessibility](#accessibility)
 
 * [Technologies](#technologies)
   * [Languages](#languages)
   * [Frameworks, Libraries and Programs](#frameworks-libraries-and-programs)
 
-* [Deployment and Development](#deployment--development)
+* [Deployment and Development](#deployment-and-development)
   * [Deployment](#deployment)
   * [Local Development](#local-development)
     * [Extensions required](#extensions-required)
@@ -450,6 +451,16 @@ Below shows the email that the player receives (including the nice breakdown of 
 
 - - -
 
+## Accessibility 
+
+Accessibility was always at the forefront of my mind when creating WWAMI.
+
+Visually impaired users can still play the game as all game elements are clearly labelled and the page makes use of semantic html markup.
+
+The design is very simple (perhaps too simple but functionality came first with this project) and the background colors don't interfere with game play.
+
+Contrast is clear on all pages and shouldn't cause colour-blind players any issues. 
+
 <br>
 
 ## Technologies
@@ -477,6 +488,8 @@ As I wanted to keep the design layout simple, I did not need to use any framewor
 <br>
 
 ## Deployment and Development
+
+### Deployment
 
 The site is deployed using GitHub Pages - [here](https://cleg83.github.io/what-word-am-i/).
 
@@ -532,8 +545,15 @@ Please see [testing.md](testing/testing.md) for detailed manual testing informat
 
 ### Automated Testing
 
+#### W3C
+
   * W3C testing for index.html and style.css can be found [here](testing/w3c)
+
+#### Lighthouse
+
   * Lighthouse Scores can be found [here](testing/lighthouse)
+
+#### JS Hint
   * JS-Hint information can be found [here](js-hint)
 
  ### Bugs
