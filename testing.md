@@ -43,6 +43,7 @@ Feature | Expected Outcome	| Testing Performed |	Result	| Pass/Fail |
 | --- | --- | --- | --- | --- |
 Letter tiles | Letter displays in first tile on text input & focus moves to next tile | Typed letter into tile | Letter displays & focus moves to next tile | Pass | 
 Letter tiles | Will only allow characters a-z / A-Z | Typed numbers and special characters into tile | Tile remained empty | Pass |
+Letter tiles | Focus moves to the next editable tile on input when correctly guessed letters have populated after a guess | Input text into tile | Focus only moves if the next editable div is an empty div, it does not skip the correctly guessed tile | Fail (see bugs section in README for more information) |
 Submit button | Displays "incorrect" alert if player guess is incorrect | Guessed incorrectly | "Incorrect" alert displayed | Pass |
 Right arrow key | Focus moves to the next free tile | Pressed right arrow key | Focus moved to next free tile | Pass |
 Left arrow key | Focus moves to the previous free tile | Pressed left arrow key | Focus moved to previous free tile | Pass |
