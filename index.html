@@ -17,14 +17,14 @@
 
 <body>
 
-  <!-- Navbar ------------------------------------------------------------>
+  <!-- Navbar -->
   <nav>
     <button class="nav-btn" id="WWAMI" aria-label="Home">WWAMI</button>
     <button class="nav-btn" id="how-to-play-link" aria-label="How to Play">How to play</button>
     <button class="nav-btn" id="about-link" aria-label="About">About</button>
   </nav>
 
-  <!-- Welcome Page ---------------------------------------------------------->
+  <!-- Welcome Page -->
   <section id="welcome-container" aria-labelledby="welcome-heading">
     <div id="heading-container">
       <h1 id="welcome-heading">Welcome to WWAMI</h1>
@@ -44,13 +44,13 @@
     </div>
     <h3 id="name-heading">To play, please enter your name or initials below:</h3>
     <p>(don't worry, we only use these details to allow us to refer to you as more than just "player")</p>
-    <input type="text" id="player-info" aria-labelledby="name-heading"></input>
+    <input type="text" id="player-info" aria-labelledby="name-heading">
     <div id="button-container">
       <button id="go-btn" class="hide game-btn" aria-label="Start Game">GO!</button>
     </div>
   </section>
 
-  <!-- Game Page --------------------------------------------------------------->
+  <!-- Game Page -->
   <section id="game-container" class="hide" aria-labelledby="game-heading">
     <h4 id="player-name"></h4>
     <h1 id="game-heading">What Word Am I?</h1>
@@ -67,7 +67,7 @@
     <button id="finish-btn" class="game-btn" aria-label="Finish Game">Finish Game</button>
   </section>
 
-  <!--Header modals------------------------------------------------------------------->
+  <!--Header modals-->
 
   <!-- Home / WWAMI Modal -->
   <div id="home-modal" class="modal" role="dialog" aria-labelledby="home-content" aria-hidden="true">
@@ -101,7 +101,7 @@
     </div>
   </div>
 
-  <!--Game page modals ------------------------------------------------->
+  <!--Game page modals -->
 
   <div id="confirm-modal" class="modal" role="dialog" aria-labelledby="confirm-modal-content" aria-hidden="true">
     <div class="modal-content" id="confirm-modal-content">
@@ -127,7 +127,7 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="assets/js/jquery-3.7.1.js"></script>
+  <script src="assets/js/jquery-3.7.1.js"></script>
   <script type="module" src="assets/js/word-list.js"></script>
   <script type="module" src="assets/js/game.js"></script>
 </body>
