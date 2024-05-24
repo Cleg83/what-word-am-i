@@ -188,9 +188,9 @@ The default colour is light pink and the random colors the game cycles through a
 
 <br>
 
-![Colour-Scheme-1](assets\images\README-images\color-scheme-1.png)
+![Color-Scheme-1](assets/images/README-images/color-scheme-1.png)
 
-![Colour-Scheme-2](assets\images\README-images\color-scheme-2.png)
+![Color-Scheme-2](assets/images/README-images/color-scheme-2.png)
 
 <br>
 
@@ -200,17 +200,17 @@ A clear font is the primary requirement for a word game font so I have opted to 
 
 * [Nunito](https://fonts.google.com/specimen/Nunito) for the header and modal font.
 
-![Nunito example 1](assets\images\README-images\nunito-header-example.png)
+![Nunito example 1](assets/images/README-images/nunito-header-example.png)
 
-![Nunito example 2](assets\images\README-images\nunito-modal-example.png)
+![Nunito example 2](assets/images/README-images/nunito-modal-example.png)
 
 <br>
 
 * [Roboto](https://fonts.google.com/specimen/Roboto) for the welcome page content and game page"
 
-![Roboto example 1](assets\images\README-images\welcome-page-1.png)
+![Roboto example 1](assets/images/README-images/welcome-page-1.png)
 
-![Roboto example 2](assets\images\README-images\roboto-game-example.png)
+![Roboto example 2](assets/images/README-images/roboto-game-example.png)
 
 
 
@@ -227,11 +227,11 @@ The navbar is pretty straightforward as the game page itself takes care of a lot
 The navbar contains:
   * WWAMI - Which is link to the welcome page (confirming if the user wants to return home and lose game progress). 
 
-  ![WWAMI / Home modal](assets\images\README-images\wwami-modal.png)
+  ![WWAMI / Home modal](assets/images/README-images/wwami-modal.png)
 
   * How To Play - Which is a link to display the game instructions.
 
-  ![How To Play modal](assets\images\README-images\how-to-play-modal.png)
+  ![How To Play modal](assets/images/README-images/how-to-play-modal.png)
 
   * About - Which displays information about the game and the technologies used to build it.
 
@@ -239,13 +239,13 @@ The navbar contains:
 
 I wanted the landing page for WWAMI to provide the player with clear instructions about how to play and how the point scoring system works. As you can see below, the layout is uncluttered and the instructions are clear.
 
-![Welcome Page](assets\images\README-images\welcome-page-2.png)
+![Welcome Page](assets/images/README-images/welcome-page-2.png)
 
 The input field for the player to input their name or initials is in focus when the page loads so the player is able to input their information without having to click anywhere first.
 
 When the player starts typing, the GO! button appears and on click (or by pressing enter) the game page is launched.
 
-![Go button](assets\images\README-images\go-button.png)
+![Go button](assets/images/README-images/go-button.png)
 
 ### The Game Page
 
