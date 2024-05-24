@@ -16,12 +16,15 @@
 </head>
 
 <body>
+
+  <!-- Navbar ------------------------------------------------------------>
   <nav>
     <button class="nav-btn" id="WWAMI" aria-label="Home">WWAMI</button>
     <button class="nav-btn" id="how-to-play-link" aria-label="How to Play">How to play</button>
     <button class="nav-btn" id="about-link" aria-label="About">About</button>
   </nav>
 
+  <!-- Welcome Page ---------------------------------------------------------->
   <section id="welcome-container" aria-labelledby="welcome-heading">
     <div id="heading-container">
       <h1 id="welcome-heading">Welcome to WWAMI</h1>
@@ -29,7 +32,6 @@
     </div>
     <div id="instructions-container">
       <h2>How to play:</h2>
-
       <ul id="instructions-list">
         <li>Guess the word by inputting letters into the blank tiles, when you are happy with your guess click
           "Submit"</li>
@@ -48,6 +50,7 @@
     </div>
   </section>
 
+  <!-- Game Page --------------------------------------------------------------->
   <section id="game-container" class="hide" aria-labelledby="game-heading">
     <h4 id="player-name"></h4>
     <h1 id="game-heading">What Word Am I?</h1>
@@ -64,7 +67,7 @@
     <button id="finish-btn" class="game-btn" aria-label="Finish Game">Finish Game</button>
   </section>
 
-  <!--Header modals-->
+  <!--Header modals------------------------------------------------------------------->
 
   <!-- Home / WWAMI Modal -->
   <div id="home-modal" class="modal" role="dialog" aria-labelledby="home-content" aria-hidden="true">
@@ -90,14 +93,15 @@
     <div class="modal-content">
       <button class="close" id="about-close" aria-label="Close">&times;</button>
       <div id="about-content">
-        <p>WWAMI was built by Matthew Cleghorn while studying web development.</p>
+        <p>WWAMI was built by Matthew Cleghorn while studying for the Code Institute Full Stack Web Development Diploma.</p>
         <p>WWAMI uses <a href="https://developer.wordnik.com/" target="_blank">Wordnik API</a> to generate the hints.</p>
         <p>WWAMI uses <a href="https://www.emailjs.com/">EmailJS</a> to send the results by email.</p>
+        <p>Apologies to UK players - the words are all US English spelling due to <a href="https://developer.wordnik.com/" target="_blank">Wordnik API</a> only providing data for US spellings.</p>
       </div>
     </div>
   </div>
 
-  <!--Game page modals-->
+  <!--Game page modals ------------------------------------------------->
 
   <div id="confirm-modal" class="modal" role="dialog" aria-labelledby="confirm-modal-content" aria-hidden="true">
     <div class="modal-content" id="confirm-modal-content">
@@ -126,7 +130,6 @@
   <script type="text/javascript" src="assets/js/jquery-3.7.1.js"></script>
   <script type="module" src="assets/js/word-list.js"></script>
   <script type="module" src="assets/js/game.js"></script>
-  <script src=""></script>
 </body>
 
 </html>
