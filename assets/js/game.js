@@ -808,8 +808,85 @@ function resetGame() {
 
 // Header functionality----------------------------------------------------------------- 
 
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
 
+//   // Home / WWAMI Modal
+//   let homeModal = document.getElementById("home-modal");
+//   let homeLink = document.getElementById("WWAMI");
+//   let homeCloseBtn = document.getElementById("home-close");
+//   let confirmHomeBtn = document.getElementById("confirm-home");
+//   let cancelHomeBtn = document.getElementById("cancel-home");
+
+//   homeLink.addEventListener("click", function (event) {
+//     event.preventDefault();
+//     homeModal.style.display = "block";
+//   });
+
+//   // Confirm and return home
+//   confirmHomeBtn.addEventListener("click", function () {
+//     homeModal.style.display = "none";
+//     resetGame();
+//   });
+
+//   cancelHomeBtn.addEventListener("click", function () {
+//     homeModal.style.display = "none";
+//   });
+
+//   homeCloseBtn.onclick = function () {
+//     homeModal.style.display = "none";
+//   };
+
+//   // Prevent closing the modal when clicking outside of it
+//   window.onclick = function (event) {
+//     if (event.target == homeModal) {
+//       homeModal.style.display = "none";
+//     }
+//   };
+
+//   // Instructions Modal
+//   let instructionsModal = document.getElementById("instructions-modal");
+//   let instructionsLink = document.getElementById("how-to-play-link");
+//   let instructionsCloseBtn = document.getElementById("instructions-close");
+//   let instructionsContent = document.getElementById("instructions-container").innerHTML;
+
+//   instructionsLink.addEventListener("click", function (event) {
+//     event.preventDefault();
+//     document.getElementById("instructions-content").innerHTML = instructionsContent;
+//     instructionsModal.style.display = "block";
+//   });
+
+//   instructionsCloseBtn.onclick = function () {
+//     instructionsModal.style.display = "none";
+//   };
+
+//   window.onclick = function (event) {
+//     if (event.target == instructionsModal) {
+//       instructionsModal.style.display = "none";
+//     }
+//   };
+
+//   // About Modal
+//   let aboutModal = document.getElementById("about-modal");
+//   let aboutLink = document.getElementById("about-link");
+//   let aboutCloseBtn = document.getElementById("about-close");
+
+//   aboutLink.addEventListener("click", function (event) {
+//     event.preventDefault();
+//     aboutModal.style.display = "block";
+//   });
+
+//   aboutCloseBtn.onclick = function () {
+//     aboutModal.style.display = "none";
+//   };
+
+//   window.onclick = function (event) {
+//     if (event.target == aboutModal) {
+//       aboutModal.style.display = "none";
+//     }
+//   };
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
   // Home / WWAMI Modal
   let homeModal = document.getElementById("home-modal");
   let homeLink = document.getElementById("WWAMI");
@@ -822,7 +899,6 @@ document.addEventListener("DOMContentLoaded", function () {
     homeModal.style.display = "block";
   });
 
-  // Confirm and return home
   confirmHomeBtn.addEventListener("click", function () {
     homeModal.style.display = "none";
     resetGame();
@@ -834,13 +910,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   homeCloseBtn.onclick = function () {
     homeModal.style.display = "none";
-  };
-
-  // Prevent closing the modal when clicking outside of it
-  window.onclick = function (event) {
-    if (event.target == homeModal) {
-      homeModal.style.display = "none";
-    }
   };
 
   // Instructions Modal
@@ -859,12 +928,6 @@ document.addEventListener("DOMContentLoaded", function () {
     instructionsModal.style.display = "none";
   };
 
-  window.onclick = function (event) {
-    if (event.target == instructionsModal) {
-      instructionsModal.style.display = "none";
-    }
-  };
-
   // About Modal
   let aboutModal = document.getElementById("about-modal");
   let aboutLink = document.getElementById("about-link");
@@ -879,10 +942,16 @@ document.addEventListener("DOMContentLoaded", function () {
     aboutModal.style.display = "none";
   };
 
+
   window.onclick = function (event) {
+    if (event.target == homeModal) {
+      homeModal.style.display = "none";
+    }
+    if (event.target == instructionsModal) {
+      instructionsModal.style.display = "none";
+    }
     if (event.target == aboutModal) {
       aboutModal.style.display = "none";
     }
   };
 });
-
