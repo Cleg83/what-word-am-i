@@ -63,7 +63,7 @@ Visit the deployed site [here](https://cleg83.github.io/what-word-am-i/)
   
 * [Credits](#credits)
   * [External code](#external-code)
-  * [Media](#media)
+
 
 ---
 
@@ -193,9 +193,9 @@ The default colour is light pink and the random colors the game cycles through a
 
 <br>
 
-![Color-Scheme-1](assets/images/readme-images/color-scheme-1.png)
+![Color-Scheme-1](assets/images/readme-img/color-scheme-1.png)
 
-![Color-Scheme-2](assets/images/readme-images/color-scheme-2.png)
+![Color-Scheme-2](assets/images/readme-img/color-scheme-2.png)
 
 <br>
 
@@ -205,17 +205,17 @@ A clear font is the primary requirement for a word game font so I have opted to 
 
 * [Nunito](https://fonts.google.com/specimen/Nunito) for the header and modal font.
 
-![Nunito example 1](assets/images/readme-images/nunito-header-example.png)
+![Nunito example 1](assets/images/readme-img/nunito-header-example.png)
 
-![Nunito example 2](assets/images/readme-images/nunito-modal-example.png)
+![Nunito example 2](assets/images/readme-img/nunito-modal-example.png)
 
 <br>
 
 * [Roboto](https://fonts.google.com/specimen/Roboto) for the welcome page content and game page"
 
-![Roboto example 1](assets/images/readme-images/welcome-page-1.png)
+![Roboto example 1](assets/images/readme-img/welcome-page-1.png)
 
-![Roboto example 2](assets/images/readme-images/roboto-game-example.png)
+![Roboto example 2](assets/images/readme-img/roboto-game-example.png)
 
 
 
@@ -229,7 +229,7 @@ A clear font is the primary requirement for a word game font so I have opted to 
 
 For WWAMI, I wanted to favicon to be a game tile with the default-color just showing in the background:
 
-![Favicon](assets/images/readme-images/favicon-image.png)
+![Favicon](assets/images/readme-img/favicon-image.png)
 
 ### The Navbar
 
@@ -238,37 +238,37 @@ The navbar is pretty straightforward as the game page itself takes care of a lot
 The navbar contains:
   * WWAMI - Which is link to the welcome page (confirming if the user wants to return home and lose game progress). 
 
-  ![WWAMI / Home modal](assets/images/readme-images/wwami-modal.png)
+  ![WWAMI / Home modal](assets/images/readme-img/wwami-modal.png)
 
   * How To Play - Which is a link to display the game instructions.
 
-  ![How To Play modal](assets/images/readme-images/how-to-play-modal.png)
+  ![How To Play modal](assets/images/readme-img/how-to-play-modal.png)
 
   * About - Which displays information about the game and the technologies used to build it.
 
-  ![About modal](assets/images/readme-images/about-modal.png)
+  ![About modal](assets/images/readme-img/about-modal.png)
 
 ### The Welcome Page
 
 I wanted the landing page for WWAMI to provide the player with clear instructions about how to play and how the point scoring system works. As you can see below, the layout is uncluttered and the instructions are clear.
 
-![Welcome Page](assets/images/readme-images/welcome-page-2.png)
+![Welcome Page](assets/images/readme-img/welcome-page-2.png)
 
 The input field for the player to input their name or initials is in focus when the page loads so the player is able to input their information without having to click anywhere first.
 
 When the player starts typing, the GO! button appears and on click (or by pressing enter) the game page is launched.
 
-![Go button](assets/images/readme-images/go-button.png)
+![Go button](assets/images/readme-img/go-button.png)
 
 ### The Game Page
 
-![The Game Page](assets/images/readme-images/game-page-1.png)
+![The Game Page](assets/images/readme-img/game-page-1.png)
 
 The game page displays blank letter divs as tiles that the player types letters in. The word the player has to guess is generated randomly from an array of words.
 
 I wanted the focus to be on the first blank tile when the game loads so that the player can immediately start playing. As well as the cursor automatically being the first tile, the border also changes colour when in focus (see below).
 
-![First tile focus](assets/images/readme-images/first-tile-focus.png)
+![First tile focus](assets/images/readme-img/first-tile-focus.png)
 
 Once the player has typed a letter, the focus moves to the next blank tile but the player is able to navigate freely between the tiles with arrow keys or by touching a blank tile on a touch screen device. 
 
@@ -325,7 +325,7 @@ From this I had to extract the "words" array so I could manipulate the data with
 
 The synonyms are then displayed as a comma separated string with the first letter of the first word capitalised and because it's a word game and details are important, it ends with a full-stop.
 
-![Synonyms 1](assets/images/readme-images/synonyms-1.png)
+![Synonyms 1](assets/images/readme-img/synonyms-1.png)
 
 ### Fetching definitions
 
@@ -335,13 +335,13 @@ This was less complicated than fetching the synonyms and rhyming words because y
 
 From this one result, I only had to extract the "text" element and then display the definition to the player.
 
-![Definition 1](assets/images/readme-images/def-1.png)
+![Definition 1](assets/images/readme-img/def-1.png)
 
 ### Fetching rhyming words
 
 Rhyming words a fetched the same way as synonyms in that an array is returned, I then needed to shuffle that array and select 10 rhyming words to display:
 
-![Rhymes 1](assets/images/readme-images/rhymes-1.png)
+![Rhymes 1](assets/images/readme-img/rhymes-1.png)
 
 
 
@@ -349,11 +349,11 @@ Rhyming words a fetched the same way as synonyms in that an array is returned, I
 
 Due to relying on API calls to fetch the hints, I wanted to incorporate error handling into the game play: Rather than only logging errors to the console and alerting the player that there is an error, I have added a confirm element to each of the fetch hint functions that alerts the player of the error and asks if they want to skip the round or guess again.
 
-![Error 1](assets/images/readme-images/error-1.png)
+![Error 1](assets/images/readme-img/error-1.png)
 
 If they skip, the 2nd alert displays:
 
-![Error 2](assets/images/readme-images/error-2.png)
+![Error 2](assets/images/readme-img/error-2.png)
 
  The newRound function is called and a new word is generated and the score and score tally remain unchanged (see below example for the fetchRhymes function).
 
@@ -391,25 +391,25 @@ When the player submits a guess, quite a few things need to happen:
 * The word has to be checked to see if it matches the game word.
 * If the guess is correct, the hint button text content needs to be checked to ensure the correct score message is displayed and the total score is updated.
 
-![Corerct guess](assets/images/readme-images/submit-correct.png)
+![Corerct guess](assets/images/readme-img/submit-correct.png)
 
 * If the guess is incorrect, the below alert shows:
 
-![Incorrect guess](assets/images/readme-images/submit-incorrect.png)
+![Incorrect guess](assets/images/readme-img/submit-incorrect.png)
 
 Then the game resumes and any correctly guessed letters stay in place and are not editable:
 
-![Update correct letters](assets/images/readme-images/update-correct-letters.png)
+![Update correct letters](assets/images/readme-img/update-correct-letters.png)
 
 ### The Pass Button
 
 When the player clicks the pass button I wanted an alert to display, confirming if they wish to pass:
 
-![Pass confirm](assets/images/readme-images/pass-confirm.png)
+![Pass confirm](assets/images/readme-img/pass-confirm.png)
 
 If the player clicks cancel, the game resumes. If they click pass, the below alert displays:
 
-![Pass show-word ](assets/images/readme-images/pass-show-word.png)
+![Pass show-word ](assets/images/readme-img/pass-show-word.png)
 
 When the player clicks OK, a new round is launched, the total score updates by 0 and a score of 0 is added to the score tally.
 
@@ -425,7 +425,7 @@ Rather than just sending the total score by email, I wanted include a breakdown 
 
 Below shows the email that the player receives (including the nice breakdown of scores). It also includes the name they entered when starting the game.
 
-![Email example](assets/images/readme-images/email.png)
+![Email example](assets/images/readme-img/email.png)
 
 ## Technologies
 
@@ -501,7 +501,19 @@ Please see [testing.md](/testing.md) for detailed manual testing information.
   * [Lighthouse](#Lighthouse)
   * [JS-Hint](#js-hint)
 
- ### Known bugs
+ ### Bugs
+
+ The only bug present in the game happens when navigating between the letter divs after the player has submitted a correct guess:
+
+ For example, if the 2nd letter has been guessed correctly the focus should move to the third div when the player inputs text in the first div, however the focus stays in the first div.
+
+ The arrow, backspace and delete keys all function as they should and will skip the non-editable div but text input won't.
+
+ I tried to solve this quite a few ways but everything I tinkered with caused problems with the arrow key functionality.
+
+ This will be fixed once I've found a solution that doesn't compromise other navigational functionality. 
+
+ I don't believe this bug has too much of a detrimental effect on the playability or user experience but I would like to solve it. 
 
 
 
