@@ -235,7 +235,7 @@ nav button:nth-of-type(2){
 .modal {
   display: none; 
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
@@ -252,6 +252,7 @@ nav button:nth-of-type(2){
   border-radius: 5px;
   width: 50%;
   font-family: "Nunito", sans-serif;
+  z-index: 1001;
 }
 
 .close {
@@ -378,9 +379,4 @@ nav button:nth-of-type(2){
     top: 50%;
     width: 80%;
   }
-
-  .modal {
-    z-index: 1000;
-  }
-  
 }
