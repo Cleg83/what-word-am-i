@@ -88,7 +88,9 @@ function launchGame() {
 
   // Filter the word list based on screen size
   let filteredWordList;
-  if (window.innerWidth <= 500) {
+  if (window.innerWidth <= 310) {
+    filteredWordList = wordList.filter(word => word.length <= 5);
+  } else if (window.innerWidth <= 500) {
     filteredWordList = wordList.filter(word => word.length <= 6);
   } else {
     filteredWordList = wordList.slice(); // Use the original word list
@@ -541,6 +543,7 @@ function fetchRhymes(word, callback) {
               newRound();
             });
           } else {
+            hintButton.style.display = "block";
             hintButton.textContent = "Hint 3";
           }
         });
