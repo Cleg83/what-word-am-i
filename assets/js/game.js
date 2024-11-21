@@ -5,9 +5,16 @@ function setBackgroundColor() {
   document.body.style.backgroundColor = "#e68eb6";
 }
 
+// Function to make finish button the same color as the body on page load
+function setFinishButtonColor() {
+  const finishButton = document.getElementById('finish-btn');
+  finishButton.style.backgroundColor = "rgba(230, 142, 182, 0.7)";
+}
+
 //Sets background color once DOMcontentLoaded
 document.addEventListener("DOMContentLoaded", function () {
   setBackgroundColor();
+  setFinishButtonColor();
 });
 
 // Function to display welcome container
@@ -38,7 +45,7 @@ let playerName;
 $("#go-btn").on("click", function () {
   console.log("Button clicked!");
   playerName = $("#player-info").val().trim();
-  $("#player-name").html("<h4>Playing as " + playerName + "</h4>");
+  $("#player-name").html("<p>Playing as " + "<strong>" + playerName + "</strong>" + "</p>");
   gameDisplay();
   launchGame();
 });
@@ -58,7 +65,12 @@ document.getElementById("player-info").addEventListener("keypress", function (ev
     if (this.value.trim() !== "") {
       document.getElementById("go-btn").click();
     } else {
-      Swal.fire("Please enter your name or initials before starting the game!");
+      Swal.fire({
+        icon: "warning",
+        iconColor: "#ea9d2a",
+        text: "Please enter your name or initials before starting the game!",
+        confirmButtonColor: "#ea9d2a",
+      });
     }
   }
 });
@@ -303,9 +315,14 @@ document.getElementById("submit-btn").addEventListener("click", function () {
       title: 'WWAMI',
       text: `You scored ${score} point${score > 1 ? "s" : ""}!\n\n${getScoreMessage(score)}`,
       icon: 'success',
+      iconColor: "#22d283",
+      confirmButtonColor: "#22d283",
       allowEnterKey: true,
       allowOutsideClick: false,
-      allowEscapeKey: false
+      allowEscapeKey: false,
+      customClass: {
+        title: 'logo-font',
+      }
     }).then(() => {
       updateTotalScore(score);
       scoreTally[score]++;
@@ -317,6 +334,8 @@ document.getElementById("submit-btn").addEventListener("click", function () {
       title: 'Incorrect',
       text: 'Try again!',
       icon: 'error',
+      iconColor: "#fb7474",
+      confirmButtonColor: "#ea9d2a",
       allowEnterKey: true,
       allowOutsideClick: false,
       allowEscapeKey: false
@@ -419,15 +438,23 @@ function fetchSynonyms(word, callback) {
           title: "We couldn't find the synonyms for this word, apologies.",
           text: "We can skip this round or you can guess again.\n\nPress OK to skip or Cancel to guess again.",
           icon: 'error',
+          iconColor: "#fb7474",
           showCancelButton: true,
           confirmButtonText: 'Skip Round',
+          confirmButtonColor: "#ea9d2a",
           cancelButtonText: 'Guess Again',
+          cancelButtonColor: "#fb7474",
           allowEnterKey: true,
           allowOutsideClick: false,
           allowEscapeKey: false
         }).then((result) => {
           if (result.isConfirmed) {
-            Swal.fire(`The word was ${randomWord}.\n\nApologies if this would have been your guess.`).then(() => {
+            Swal.fire({
+              title: `The word was ${randomWord}.`,
+              text: "Apologies if this would have been your guess.",
+              confirmButtonColor: "#ea9d2a",
+              confirmButtonText: "Next word"
+            }).then(() => {
               newRound();
             });
           } else {
@@ -443,9 +470,12 @@ const hintOneContainer = document.getElementById("hint-one");
 
 // Function to display the synonyms of the game word
 function displaySynonyms(synonyms) {
+  const hintContainer = document.getElementById("hint-container")
   let synonymsString = synonyms.join(", ");
   synonymsString = synonymsString.charAt(0).toUpperCase() + synonymsString.slice(1);
-  hintOneContainer.innerHTML = "<h4 class='hint-heading'>My synonyms are:</h4>" + synonymsString;
+  hintContainer.classList.remove('hide');
+  hintContainer.classList.add('show');
+  hintOneContainer.innerHTML = "<h4 class='hint-heading'>Synonyms:</h4>" + synonymsString;
   hintOneContainer.style.display = "block";
 }
 
@@ -476,13 +506,20 @@ function fetchDefinition(word, callback) {
           icon: 'error',
           showCancelButton: true,
           confirmButtonText: 'Skip Round',
+          confirmButtonColor: "#ea9d2a",
           cancelButtonText: 'Guess Again',
+          cancelButtonColor: "#fb7474",
           allowEnterKey: true,
           allowOutsideClick: false,
           allowEscapeKey: false
         }).then((result) => {
           if (result.isConfirmed) {
-            Swal.fire(`The word was ${randomWord}.\n\nApologies if this would have been your guess.`).then(() => {
+            Swal.fire({
+              title: `The word was ${randomWord}.`,
+              text: "Apologies if this would have been your guess.",
+              confirmButtonColor: "#ea9d2a",
+              confirmButtonText: "Next word"
+            }).then(() => {
               newRound();
             });
           } else {
@@ -498,7 +535,7 @@ const hintTwoContainer = document.getElementById("hint-two");
 
 // Function to display the definition of the game word
 function displayDefinition(definition) {
-  hintTwoContainer.innerHTML = "<h4 class='hint-heading'>My definition is:</h4>" + definition;
+  hintTwoContainer.innerHTML = "<hr></hr><h4 class='hint-heading'>Definition:</h4>" + definition;
   hintTwoContainer.style.display = "block";
 }
 
@@ -532,13 +569,20 @@ function fetchRhymes(word, callback) {
           icon: 'error',
           showCancelButton: true,
           confirmButtonText: 'Skip Round',
+          confirmButtonColor: "#ea9d2a",
           cancelButtonText: 'Guess Again',
+          cancelButtonColor: "#fb7474",
           allowEnterKey: true,
           allowOutsideClick: false,
           allowEscapeKey: false
         }).then((result) => {
           if (result.isConfirmed) {
-            Swal.fire(`The word was ${randomWord}.\n\nApologies if this would have been your guess.`).then(() => {
+            Swal.fire({
+              title: `The word was ${randomWord}.`,
+              text: "Apologies if this would have been your guess.",
+              confirmButtonColor: "#ea9d2a",
+              confirmButtonText: "Next word"
+            }).then(() => {
               newRound();
             });
           } else {
@@ -557,7 +601,7 @@ const hintThreeContainer = document.getElementById("hint-three");
 function displayRhymes(rhymes) {
   let rhymeString = rhymes.join(", ");
   rhymeString = rhymeString.charAt(0).toUpperCase() + rhymeString.slice(1);
-  hintThreeContainer.innerHTML = "<h4 class='hint-heading'>My rhyming words are:</h4>" + rhymeString;
+  hintThreeContainer.innerHTML = "<hr></hr><h4 class='hint-heading'>Rhyming words:</h4>" + rhymeString;
   hintThreeContainer.style.display = "block";
 }
 
@@ -626,6 +670,26 @@ document.getElementById("hint-btn").addEventListener("click", function () {
   updateHintButton();
 });
 
+function hexToRgba(hex, opacity) {
+  // Remove the hash (#) if it exists
+  let cleanHex = hex.replace('#', '');
+
+  // If shorthand hex (like #abc), convert to full form (#aabbcc)
+  if (cleanHex.length === 3) {
+      cleanHex = cleanHex.split('').map(function (hexChar) {
+          return hexChar + hexChar;
+      }).join('');
+  }
+
+  // Parse the r, g, b values
+  const r = parseInt(cleanHex.substring(0, 2), 16);
+  const g = parseInt(cleanHex.substring(2, 4), 16);
+  const b = parseInt(cleanHex.substring(4, 6), 16);
+
+  // Return the rgba string
+  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+}
+
 //Function to move to the next round / word
 function newRound() {
 
@@ -643,6 +707,15 @@ function newRound() {
 
   let newGameColor = getRandomColor();
   document.body.style.backgroundColor = newGameColor;
+
+  const finishButton = document.getElementById('finish-btn');
+  const opacity = 0.7; // Set the desired opacity (0 to 1)
+  finishButton.style.backgroundColor = hexToRgba(newGameColor, opacity);
+
+  const hintContainer = document.getElementById("hint-container")
+  hintContainer.classList.remove('show');
+  hintContainer.classList.add('hide');
+
 
   launchGame();
 }
@@ -667,9 +740,10 @@ document.getElementById("pass-btn").addEventListener("click", function () {
     title: 'Are you sure you want to pass?',
     text: "You'll get 0 points",
     icon: 'warning',
+    iconColor: '#ea9d2a',
     showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
+    confirmButtonColor: '#ea9d2a',
+    cancelButtonColor: '#fb7474',
     confirmButtonText: 'Yes, pass it!'
   }).then((result) => {
     if (result.isConfirmed) {
@@ -677,6 +751,9 @@ document.getElementById("pass-btn").addEventListener("click", function () {
         title: 'Bad luck!',
         text: `The word was ${randomWord}.`,
         icon: 'info',
+        iconColor: '#fb7474',
+        confirmButtonText: "Next word",
+        confirmButtonColor: '#ea9d2a',
         allowEscapeKey: false,
         allowEnterKey: true,
         allowOutsideClick: false
@@ -781,10 +858,20 @@ function sendEmail(templateParams) {
   emailjs.send("gmail", "WWAMI-scores", templateParams)
     .then(function (response) {
       console.log("Email sent successfully:", response);
-      Swal.fire("Results sent successfully!");
+      Swal.fire({
+        icon: "success",
+        iconColor: "#22d283",
+        title: "Results sent successfully!",
+        confirmButtonColor: "#22d283",
+      });
     }, function (error) {
       console.error("Email sending failed:", error);
-      Swal.fire("Failed to send results. Please try again later.");
+      Swal.fire({
+        icon: "warning",
+        iconColor: "#fb7474", 
+        title: "Failed to send results. Please try again later.",
+        confirmButtonColor: "#fb7474",
+      });
     });
 }
 
@@ -834,21 +921,41 @@ document.addEventListener("DOMContentLoaded", function () {
     homeModal.style.display = "none";
   };
 
-  // Instructions Modal
-  let instructionsModal = document.getElementById("instructions-modal");
-  let instructionsLink = document.getElementById("how-to-play-link");
-  let instructionsCloseBtn = document.getElementById("instructions-close");
-  let instructionsContent = document.getElementById("instructions-container").innerHTML;
+let instructionsModal = document.getElementById("instructions-modal");
+let instructionsLink = document.getElementById("how-to-play-link");
+let instructionsCloseBtn = document.getElementById("instructions-close");
+// let instructionsContent = document.getElementById("instructions-container").innerHTML;
 
-  instructionsLink.addEventListener("click", function (event) {
-    event.preventDefault();
-    document.getElementById("instructions-content").innerHTML = instructionsContent;
-    instructionsModal.style.display = "block";
-  });
+instructionsLink.addEventListener("click", function (event) {
+  event.preventDefault();
+  // document.getElementById("instructions-content").innerHTML = instructionsContent;
+  
+  instructionsModal.style.display = "block";
+  
+  // Call the toggleModalImage function here to update image visibility
+  toggleModalImage();
+});
 
-  instructionsCloseBtn.onclick = function () {
-    instructionsModal.style.display = "none";
-  };
+instructionsCloseBtn.onclick = function () {
+  instructionsModal.style.display = "none";
+};
+
+// Function to toggle whether the game area preview is shown in the instructions modal
+function toggleModalImage() {
+  const modalImage = document.getElementById("instruction-image");
+
+  // Check if the user is in the welcome-section or game-area based on class
+  const isWelcomeSection = !$("#welcome-container").hasClass("hide");
+  const isGameArea = !$("#game-container").hasClass("hide");
+
+  if (isGameArea) {
+    // Hide the image if in game-area section
+    modalImage.style.display = "none";
+  } else if (isWelcomeSection) {
+    // Show the image if in welcome-section
+    modalImage.style.display = "block";
+  }
+}
 
   // About Modal
   let aboutModal = document.getElementById("about-modal");
